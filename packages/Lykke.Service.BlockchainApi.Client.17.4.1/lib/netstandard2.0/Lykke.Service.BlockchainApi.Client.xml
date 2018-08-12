@@ -1,0 +1,1469 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lykke.Service.BlockchainApi.Client</name>
+    </assembly>
+    <members>
+        <member name="T:Lykke.Service.BlockchainApi.Client.BlockchainApiClient">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.GetIsAliveAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.GetCapabilitiesAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.GetConstantsAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.EnumerateAllAssetsAsync(System.Int32,System.Action{Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset})">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.EnumerateAllAssetsAsync(System.Int32,System.Func{Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset,System.Threading.Tasks.Task})">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.EnumerateAllAssetBatchesAsync(System.Int32,System.Action{System.Collections.Generic.IReadOnlyList{Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.EnumerateAllAssetBatchesAsync(System.Int32,System.Func{System.Collections.Generic.IReadOnlyList{Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset},System.Threading.Tasks.Task})">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.GetAllAssetsAsync(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.GetAssetAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.IsAddressValidAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.GetAddressExplorerUrlAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.GetUnderlyingAddressAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.GetVirtualAddressAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.StartBalanceObservationAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.StopBalanceObservationAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.EnumerateWalletBalanceBatchesAsync(System.Int32,System.Func{System.String,System.Int32},System.Func{System.Collections.Generic.IReadOnlyList{Lykke.Service.BlockchainApi.Client.Models.WalletBalance},System.Threading.Tasks.Task{System.Boolean}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.BuildSingleTransactionAsync(System.Guid,System.String,System.String,System.String,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset,System.Decimal,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.BuildSingleReceiveTransactionAsync(System.Guid,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.BuildTransactionWithManyInputsAsync(System.Guid,System.Collections.Generic.IEnumerable{Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionInput},System.String,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.BuildTransactionWithManyOutputsAsync(System.Guid,System.String,System.String,System.Collections.Generic.IEnumerable{Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionOutput},Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.RebuildTransactionAsync(System.Guid,System.Decimal)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.BroadcastTransactionAsync(System.Guid,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.TryGetBroadcastedSingleTransactionAsync(System.Guid,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.GetBroadcastedSingleTransactionAsync(System.Guid,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.TryGetBroadcastedTransactionWithManyInputsAsync(System.Guid,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.GetBroadcastedTransactionWithManyInputsAsync(System.Guid,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.TryGetBroadcastedTransactionWithManyOutputsAsync(System.Guid,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.GetBroadcastedTransactionWithManyOutputsAsync(System.Guid,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.ForgetBroadcastedTransactionsAsync(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.StartHistoryObservationOfOutgoingTransactionsAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.StartHistoryObservationOfIncomingTransactionsAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.GetHistoryOfOutgoingTransactionsAsync(System.String,System.String,System.Int32,System.Func{System.String,System.Int32})">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.GetHistoryOfIncomingTransactionsAsync(System.String,System.String,System.Int32,System.Func{System.String,System.Int32})">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.StopHistoryObservationOfOutgoingTransactionsAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.StopHistoryObservationOfIncomingTransactionsAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.BlockchainApiClient.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.ErrorResponseException">
+            <summary>
+            Represents error response from the Blockchain API service
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.ErrorResponseException.ErrorCode">
+            <summary>
+            Error code
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.ErrorResponseException.Error">
+            <summary>
+            Erorr response
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.ErrorResponseException.StatusCode">
+            <summary>
+            HTTP status code
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetIsAliveAsync">
+            <summary>
+            Should return some general service info. Used to check is service running
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetCapabilitiesAsync">
+            <summary>
+            Should return API capabilities set. Each optional operation has corresponding flag in the capabilities. 
+            Optional operations should be implemented if particular blockchain provides such functionality. 
+            Any field in response of this endpoint can be empty, this should be treated as false value.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetConstantsAsync">
+            <summary>
+            Optional.
+            
+            This endpoint should return blockchain integration constants if any are supported.
+            If no constants are supported, this method can be not implemented.
+            
+            Errors:
+            - 501 Not Implemented - function is not implemented in the blockchain.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetAssetsAsync(System.Int32,System.String)">
+            <summary>
+            Should return batch blockchain assets (coins, tags). If there are no assets, 
+            empty array should be returned. Amount of the returned assets should not exceed <paramref name="take"/>.
+            Optional <paramref name="continuation"/> contains context of the previous request, to let Blockchain.Api
+            resume reading of the assets from the previous position. If <paramref name="continuation"/> is empty, assets 
+            should be read from the beginning.
+            </summary>
+            <param name="take">Maximum wallets to return</param>
+            <param name="continuation">Continuation token returned by the previous request, or null</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetAssetAsync(System.String)">
+            <summary>
+            Should return specified asset (coin, tag)
+            
+            Errors:
+            - 204 No content: specified asset not found
+            </summary>
+            <param name="assetId">Asset ID</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.IsAddressValidAsync(System.String)">
+            <summary>
+            Should check and return wallet address validity
+            </summary>
+            <param name="address">
+            Wallet address (for the blockchains with address mapping it must be underlying address)
+            </param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetAddressExplorerUrlsAsync(System.String)">
+            <summary>
+            Optional. See <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetCapabilitiesAsync"/>
+            
+            Should return one or many blockchain explorer URLs for the given address.
+            
+            Errors:
+            - 501 Not Implemented - function is not implemented in the blockchain.
+            </summary>
+            <param name="address">
+            Wallet address (for the blockchains with address mapping it must be underlying address)
+            </param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetUnderlyingAddressAsync(System.String)">
+            <summary>
+            Should return underlying (blockchain native) address for the given virtual address
+            </summary>
+            <param name="address">Virtual address</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetVirtualAddressAsync(System.String)">
+            <summary>
+            Should return virtual address for the given underlying (blockchain native) address
+            </summary>
+            <param name="address">Underlying address</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.StartBalanceObservationAsync(System.String)">
+             <summary>
+             Should remember the wallet address to observe the wallet balance and return it in the 
+             <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetWalletBalancesAsync(System.Int32,System.String)"/>, if the balance is non zero.
+             
+             If there was any balance on the wallet before this call, 
+             it could be ignored at the discretion of the implementation 
+             (not returned in the <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetWalletBalancesAsync(System.Int32,System.String)"/>).
+            
+             Errors:
+             - 409 Conflict: specified address is already observed.
+             </summary>
+             <param name="address">
+             Wallet address (for the blockchains with address mapping it must be virtual address)
+             </param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.StopBalanceObservationAsync(System.String)">
+            <summary>
+            Should forget the wallet address and stop observe its balance.
+            
+            Errors:
+            - 204 No content: specified address is not observed
+            </summary>
+            <param name="address">
+            Wallet address (for the blockchains with address mapping it must be virtual address)
+            </param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetWalletBalancesAsync(System.Int32,System.String)">
+            <summary>
+            Should return balances of the observed wallets with non zero balances.
+            Wallets balance observation is enabled by the 
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.StartBalanceObservationAsync(System.String)"/> and disabled by the <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.StopBalanceObservationAsync(System.String)"/>.
+            If there are no balances to return, empty array should be returned.
+            Amount of the returned balances should not exceed <paramref name="take"/>. 
+            Optional continuation contains context of the previous request, to let Blockchain.Api 
+            resume reading of the balances from the previous position.
+            If continuation is empty, balances should be read from the beginning.
+            </summary>
+            <param name="take">Maximum wallets to return</param>
+            <param name="continuation">Continuation token returned by the previous request, or null</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.BuildSingleTransactionAsync(Lykke.Service.BlockchainApi.Contract.Transactions.BuildSingleTransactionRequest)">
+            <summary>
+            Should build not signed transaction to transfer from the single source to the single destination.
+            If the transaction with the specified operationId has already been built by one of the [POST] /api/transactions/* call,
+            it should be ignored and regular response (as in the first request) should be returned. For the blockchains where “send” and “receive” 
+            transactions are distinguished, this endpoint builds “send” transactions.
+            
+            Errors:
+            - 400 BadRequest: With one of <see cref="T:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode"/> as <see cref="P:Lykke.Service.BlockchainApi.Contract.BlockchainErrorResponse.ErrorCode"/>.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.BuildSingleReceiveTransactionAsync(Lykke.Service.BlockchainApi.Contract.Transactions.BuildSingleReceiveTransactionRequest)">
+            <summary>
+            Optional. See <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetCapabilitiesAsync"/>
+            Should build not signed “receive” transaction to receive funds previously sent 
+            from the single source to the single destination. If the receive transaction with 
+            the specified operationId has already been built by the [POST] /api/transactions/single/receive call,
+             it should be ignored and regular response (as in the first request) should be returned. 
+            This endpoint should be implemented by the blockchains, which distinguishes “send” and “receive” 
+            transactions and “receive” transaction requires the same private key as the “send”.
+            
+            Errors:
+            - 501 Not Implemented - function is not implemented in the blockchain.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.BuildTransactionWithManyInputsAsync(Lykke.Service.BlockchainApi.Contract.Transactions.BuildTransactionWithManyInputsRequest)">
+            <summary>
+            Optional. See <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetCapabilitiesAsync"/>
+            
+            Should build not signed transaction with many inputs. If the transaction with the specified operationId has 
+            already been built by one of the[POST] /api/transactions call, it should be ignored and regular response 
+            (as in the first request) should be returned. Fee should be included in the specified amount.
+            
+            Errors:
+            - 400 BadRequest: With one of <see cref="T:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode"/> as <see cref="P:Lykke.Service.BlockchainApi.Contract.BlockchainErrorResponse.ErrorCode"/>.
+            - 501 Not Implemented - function is not implemented in the blockchain.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.BuildTransactionWithManyOutputsAsync(Lykke.Service.BlockchainApi.Contract.Transactions.BuildTransactionWithManyOutputsRequest)">
+            <summary>
+            Optional. See <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetCapabilitiesAsync"/>
+            
+            Should build not signed transaction with many outputs. If the transaction with the specified operationId has 
+            already been built by one of the[POST] /api/transactions call, it should be ignored and regular response 
+            (as in the first request) should be returned. Fee should be added to the specified amount.
+            
+            Errors:
+            - 400 BadRequest: With one of <see cref="T:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode"/> as <see cref="P:Lykke.Service.BlockchainApi.Contract.BlockchainErrorResponse.ErrorCode"/>.
+            - 501 Not Implemented - function is not implemented in the blockchain.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.RebuildTransactionAsync(Lykke.Service.BlockchainApi.Contract.Transactions.RebuildTransactionRequest)">
+            <summary>
+            Optional. See <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetCapabilitiesAsync"/>
+            
+            Should rebuild not signed transaction with the specified fee factor, 
+            if applicable for the given blockchain. This should be implemented, 
+            if blockchain allows transaction rebuilding (substitution) with new fee. 
+            This will be called if transaction is stuck in the “in-progress” state for too long,
+            to try to execute transaction with higher fee. [POST] /api/transactions with the same 
+            operationId should precede to the given call. Transaction should be rebuilt with 
+            parameters that were passed to the [POST] /api/transactions.
+            
+            Errors:
+            - 400 BadRequest: With one of <see cref="T:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode"/> as <see cref="P:Lykke.Service.BlockchainApi.Contract.BlockchainErrorResponse.ErrorCode"/>.
+            - 501 Not Implemented - function is not implemented in the blockchain.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.BroadcastTransactionAsync(Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastTransactionRequest)">
+            <summary>
+            Should broadcast the signed transaction.
+            
+            Errors:
+            - 400 BadRequest: With one of <see cref="T:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode"/> as <see cref="P:Lykke.Service.BlockchainApi.Contract.BlockchainErrorResponse.ErrorCode"/>.
+            - 409 Conflict: transaction with specified operationId and signedTransaction is already broadcasted.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetBroadcastedSingleTransactionAsync(System.Guid)">
+            <summary>
+            Should return broadcasted  transaction by the operationId. All transactions with single input and output, 
+            that were broadcasted by the  <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.BroadcastTransactionAsync(Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastTransactionRequest)"/> should be available here.
+            
+            Errors:
+            - 204 No content - specified transaction not found
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetBroadcastedTransactionWithManyInputsAsync(System.Guid)">
+            <summary>
+            Optional. See <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetCapabilitiesAsync"/>
+            Should return broadcasted transaction by the operationId. All transactions with many inputs, that were broadcasted by the 
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.BroadcastTransactionAsync(Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastTransactionRequest)"/> should be available here.
+            
+            Errors:
+            - 501 Not Implemented - function is not implemented in the blockchain.
+            - 204 No content - specified transaction not found
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetBroadcastedTransactionWithManyOutputsAsync(System.Guid)">
+            <summary>
+            Optional. See <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetCapabilitiesAsync"/>
+            Should return broadcasted transaction by the operationId. All transactions with many outputs, that were broadcasted by the 
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.BroadcastTransactionAsync(Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastTransactionRequest)"/> should be available here.
+            
+            Errors:
+            - 501 Not Implemented - function is not implemented in the blockchain.
+            - 204 No content - specified transaction not found
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.ForgetBroadcastedTransactionAsync(System.Guid)">
+            <summary>
+            Should remove specified transaction from the broadcasted transactions. Should affect 
+            transactions returned by the <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetBroadcastedSingleTransactionAsync(System.Guid)"/>
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.StartHistoryObservationOfOutgoingTransactionsAsync(System.String)">
+            <summary>
+            Should start observation of the transactions that transfer fund from the address. 
+            Should affect result of the [GET] /api/transactions/history/from/{address}.
+            
+            Errors:
+            - 409 Conflict: transactions from the address are already observed.
+            </summary>
+            <param name="address">Address for which outgoing transactions history should be observed</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.StartHistoryObservationOfIncomingTransactionsAsync(System.String)">
+            <summary>
+            Should start observation of the transactions that transfer fund to the address. 
+            Should affect result of the [GET] /api/transactions/history/to/{address}.
+            
+            Errors:
+            - 409 Conflict: transactions to the address are already observed.
+            </summary>
+            <param name="address">Address for which incoming transactions history should be observed</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetHistoryOfOutgoingTransactionsAsync(System.String,System.String,System.Int32)">
+            <summary>
+            Should return completed transactions that transfer fund from the <paramref name="address"/> and that 
+            were broadcasted after the transaction with the hash equal to the <paramref name="afterHash"/>.
+            Should include transactions broadcasted not using this API.
+            If there are no transactions to return, empty array should be returned.
+            Amount of the returned transactions should not exceed <paramref name="take"/>.
+            </summary>
+            <param name="address">
+            Address for which outgoing transactions history should be returned.
+            For the blockchains with address mapping, it could be virtual or underlying address.
+            </param>
+            <param name="afterHash">Hash of the transaction after which history should be returned</param>
+            <param name="take">Maximum transactions to return</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetHistoryOfIncomingTransactionsAsync(System.String,System.String,System.Int32)">
+            <summary>
+            Should return completed transactions that transfer fund to the <paramref name="address"/> and that 
+            were broadcasted after the transaction with the hash equal to the <paramref name="afterHash"/>.
+            Should include transactions broadcasted not using this API.
+            If there are no transactions to return, empty array should be returned.
+            Amount of the returned transactions should not exceed <paramref name="take"/>.
+            </summary>
+            <param name="address">
+            Address for which incoming transactions history should be returned.
+            For the blockchains with address mapping, it could be virtual or underlying address
+            </param>
+            <param name="afterHash">Hash of the transaction after which history should be returned</param>
+            <param name="take">Maximum transactions to return</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.StopHistoryObservationOfOutgoingTransactionsAsync(System.String)">
+            <summary>
+            Should stop observation of the transactions that transfer fund from the address.
+            Should affect result of the <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetHistoryOfOutgoingTransactionsAsync(System.String,System.String,System.Int32)"/>}.
+            
+            Errors:
+            - 204 No content: transactions from the address are not observed.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.StopHistoryObservationOfIncomingTransactionsAsync(System.String)">
+            <summary>
+            Should stop observation of the transactions that transfer fund to the address.
+            Should affect result of the <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApi.GetHistoryOfIncomingTransactionsAsync(System.String,System.String,System.Int32)"/>}.
+            
+            Errors:
+            - 204 No content: transactions from the address are not observed.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetIsAliveAsync">
+            <summary>
+            Should return some general service info. Used to check is service running
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetCapabilitiesAsync">
+            <summary>
+            Should return blockchain API capabilities.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetConstantsAsync">
+            <summary>
+            Should return blockchain API constants.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.EnumerateAllAssetsAsync(System.Int32,System.Action{Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset})">
+            <summary>
+            Enumerates all blockchain assets (coins, tags). To the <paramref name="enumerationCallback"/>
+            </summary>
+            <param name="batchSize">Batch size that single request to the Blockchain.Api can return</param>
+            <param name="enumerationCallback">Enumeration callback, which will be called for every read asset</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.EnumerateAllAssetsAsync(System.Int32,System.Func{Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset,System.Threading.Tasks.Task})">
+            <summary>
+            Enumerates all blockchain assets (coins, tags). To the <paramref name="enumerationCallback"/>
+            </summary>
+            <param name="batchSize">Batch size that single request to the Blockchain.Api can return</param>
+            <param name="enumerationCallback">Enumeration callback, which will be called for every read asset</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.EnumerateAllAssetBatchesAsync(System.Int32,System.Action{System.Collections.Generic.IReadOnlyList{Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset}})">
+            <summary>
+            Enumerates all blockchain assets (coins, tags). To the <paramref name="enumerationCallback"/>
+            </summary>
+            <param name="batchSize">Batch size that single request to the Blockchain.Api can return</param>
+            <param name="enumerationCallback">Enumeration callback, which will be called for every read asset</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.EnumerateAllAssetBatchesAsync(System.Int32,System.Func{System.Collections.Generic.IReadOnlyList{Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset},System.Threading.Tasks.Task})">
+            <summary>
+            Enumerates all blockchain assets (coins, tags). To the <paramref name="enumerationCallback"/>
+            </summary>
+            <param name="batchSize">Batch size that single request to the Blockchain.Api can return</param>
+            <param name="enumerationCallback">Enumeration callback, which will be called for every read asset</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetAllAssetsAsync(System.Int32)">
+            <summary>
+            Returns all blockchain assets (coins, tags). If there are no assets, empty collection will be returned
+            </summary>
+            <param name="batchSize">Batch size that single request to the Blockchain.Api can return</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetAssetAsync(System.String)">
+            <summary>
+            Should return specified asset (coin, tag)
+            
+            Errors:
+            - 204 No content: specified asset not found
+            </summary>
+            <param name="assetId">Asset ID</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.TryGetAssetAsync(System.String)">
+            <summary>
+            Should return specified asset (coin, tag) or null if asset is not found
+            </summary>
+            <param name="assetId">Asset ID</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.IsAddressValidAsync(System.String)">
+            <summary>
+            Should check and return wallet address validity
+            </summary>
+            <param name="address">
+            Wallet address (for the blockchains with address mapping it must be underlying address)
+            </param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetAddressExplorerUrlAsync(System.String)">
+            <summary>
+            Optional method. <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetCapabilitiesAsync"/>.
+            
+            Should return one or many blockchain explorer URLs for the given address.
+            </summary>
+            <param name="address">
+            Wallet address (for the blockchains with address mapping it must be underlying address)
+            </param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetUnderlyingAddressAsync(System.String)">
+            <summary>
+            Should return underlying (blockchain native) address for the given virtual address
+            </summary>
+            <param name="virtualAddress">Virtual address</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetVirtualAddressAsync(System.String)">
+            <summary>
+            Should return virtual address for the given underlying (blockchain native) address
+            </summary>
+            <param name="underlyingAddress">Underlying address</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.StartBalanceObservationAsync(System.String)">
+             <summary>
+             Should remember the wallet address to observe the wallet balance and return it in the 
+             <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.EnumerateWalletBalanceBatchesAsync(System.Int32,System.Func{System.String,System.Int32},System.Func{System.Collections.Generic.IReadOnlyList{Lykke.Service.BlockchainApi.Client.Models.WalletBalance},System.Threading.Tasks.Task{System.Boolean}})"/>, if the balance is non zero.
+             
+             If there was any balance on the wallet before this call, 
+             it could be ignored at the discretion of the implementation 
+             (not returned in the <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.EnumerateWalletBalanceBatchesAsync(System.Int32,System.Func{System.String,System.Int32},System.Func{System.Collections.Generic.IReadOnlyList{Lykke.Service.BlockchainApi.Client.Models.WalletBalance},System.Threading.Tasks.Task{System.Boolean}})"/>).
+            
+             For the blockchains with address mapping, address should be virtual address. 
+             
+             Errors:
+             - 409 Conflict: specified address is already observed.
+             </summary>
+             <param name="address">
+             Wallet address (for the blockchains with address mapping it must be virtual address)
+             </param>
+             <returns>true - if balance observation is started. false - if balance observation was already started</returns>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.StopBalanceObservationAsync(System.String)">
+            <summary>
+            Should forget the wallet address and stop observe its balance.
+            
+            For the blockchains with address mapping, address should be virtual address.
+            
+            Errors:
+            - 204 No content: specified address is not observed
+            </summary>
+            <param name="address">
+            Wallet address (for the blockchains with address mapping it must be virtual address)
+            </param>
+            <returns>true - if balance observation is stopped. false - if balance is not observed to stop it</returns>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.EnumerateWalletBalanceBatchesAsync(System.Int32,System.Func{System.String,System.Int32},System.Func{System.Collections.Generic.IReadOnlyList{Lykke.Service.BlockchainApi.Client.Models.WalletBalance},System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Should return balances of the observed wallets with non zero balances.
+            Wallets balance observation is enabled by the 
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.StartBalanceObservationAsync(System.String)"/> and disabled by the <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.StopBalanceObservationAsync(System.String)"/>.
+            </summary>
+            <param name="batchSize">Maximum batch size</param>
+            <param name="assetAccuracyProvider">Delegate which should provide blockchain asset pair accuracy by the blockchain asset ID</param>
+            <param name="enumerationCallback">Batch enumeration callback</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BuildSingleTransactionAsync(System.Guid,System.String,System.String,System.String,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset,System.Decimal,System.Boolean)">
+            <summary>
+            Should build not signed transaction to transfer from the single source to the single destination. If the transaction with the specified 
+            <paramref name="operationId"/> has already been built by one of the
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BuildSingleTransactionAsync(System.Guid,System.String,System.String,System.String,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset,System.Decimal,System.Boolean)"/>,
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BuildTransactionWithManyInputsAsync(System.Guid,System.Collections.Generic.IEnumerable{Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionInput},System.String,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)"/> or
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BuildTransactionWithManyOutputsAsync(System.Guid,System.String,System.String,System.Collections.Generic.IEnumerable{Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionOutput},Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)"/>, 
+            call, it should be ignored and regular response (as in the first request) should be returned.
+            For the blockchains where “send” and “receive” transactions are distinguished, this endpoint builds “send” transactions.
+            </summary>
+            
+            <param name="operationId">Lykke unique operation ID</param>
+            <param name="fromAddress">Source address</param>
+            <param name="fromAddressContext">Source address context taken from the blockchain sign service</param>
+            <param name="toAddress">Destination address</param>
+            <param name="asset">Blockchain asset to transfer</param>
+            <param name="amount">Amount to transfer</param>
+            <param name="includeFee">Flag, which indicates, that fee should be included in the specified amount</param>
+            
+            <exception cref="T:Lykke.Service.BlockchainApi.Client.ErrorResponseException">
+            Among <see cref="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.Unknown"/> error next error codes can be specified:
+            - <see cref="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.AmountIsTooSmall"/>
+            - <see cref="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.NotEnoughBalance"/>
+            </exception>
+            <exception cref="T:Lykke.Service.BlockchainApi.Client.TransactionAlreadyBroadcastedException">
+            Transaction has been already broadcasted or even removed
+            </exception>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BuildSingleReceiveTransactionAsync(System.Guid,System.String)">
+            <summary>
+            Optional method. <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetCapabilitiesAsync"/>
+             
+            Should build not signed receive transaction to receive funds transfered by the send transaction from the single source to the single destination. 
+            If transaction with the specified <paramref name="operationId"/> already was built by the
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BuildSingleReceiveTransactionAsync(System.Guid,System.String)"/> it should be ignored and regular response should be returned.
+            </summary>
+            <param name="operationId">Lykke unique operation ID</param>
+            <param name="sendTransactionHash">Hash of the send transaction, which should be received</param>
+            <exception cref="T:Lykke.Service.BlockchainApi.Client.TransactionAlreadyBroadcastedException">
+            Transaction has been already broadcasted or even removed
+            </exception>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BuildTransactionWithManyInputsAsync(System.Guid,System.Collections.Generic.IEnumerable{Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionInput},System.String,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)">
+            <summary>
+            Optional method. <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetCapabilitiesAsync"/>
+            
+            Should build not signed transaction to transfer from the single source to the single destination. If transaction with the specified 
+            <paramref name="operationId"/> already was built by one of the
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BuildSingleTransactionAsync(System.Guid,System.String,System.String,System.String,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset,System.Decimal,System.Boolean)"/>,
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BuildTransactionWithManyInputsAsync(System.Guid,System.Collections.Generic.IEnumerable{Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionInput},System.String,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)"/> or
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BuildTransactionWithManyOutputsAsync(System.Guid,System.String,System.String,System.Collections.Generic.IEnumerable{Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionOutput},Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)"/>, 
+            it should be ignored and regular response should be returned.
+            Fee should be included in the specified amount.
+            </summary>
+            
+            <param name="operationId">Lykke unique operation ID</param>
+            <param name="inputs">Sources</param>
+            <param name="toAddress">Destination address</param>
+            <param name="asset">Blockchain asset to transfer</param>
+            
+            <exception cref="T:Lykke.Service.BlockchainApi.Client.ErrorResponseException">
+            Among <see cref="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.Unknown"/> error next error codes can be specified:
+            - <see cref="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.AmountIsTooSmall"/>
+            - <see cref="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.NotEnoughBalance"/>
+            </exception>
+            <exception cref="T:System.NotSupportedException">
+            Operation is not supported for the given blockchain. See <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetCapabilitiesAsync"/>
+            </exception>
+            <exception cref="T:Lykke.Service.BlockchainApi.Client.TransactionAlreadyBroadcastedException">
+            Transaction has been already broadcasted or even removed
+            </exception>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BuildTransactionWithManyOutputsAsync(System.Guid,System.String,System.String,System.Collections.Generic.IEnumerable{Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionOutput},Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)">
+            <summary>
+            Optional method. <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetCapabilitiesAsync"/>
+            Should build not signed transaction to transfer from the single source to the single destination. If transaction with the specified 
+            <paramref name="operationId"/> already was built by one of the
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BuildSingleTransactionAsync(System.Guid,System.String,System.String,System.String,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset,System.Decimal,System.Boolean)"/>,
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BuildTransactionWithManyInputsAsync(System.Guid,System.Collections.Generic.IEnumerable{Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionInput},System.String,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)"/> or
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BuildTransactionWithManyOutputsAsync(System.Guid,System.String,System.String,System.Collections.Generic.IEnumerable{Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionOutput},Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)"/>, 
+            it should be ignored and regular response should be returned.
+            Fee should be added to the specified amount.
+            </summary>
+            <param name="operationId">Lykke unique operation ID</param>
+            <param name="fromAddress">Destination address</param>
+            <param name="fromAddressContext">context taken from the blockchain sign service</param>
+            <param name="outputs">Destinations</param>
+            <param name="asset">Blockchain asset to transfer</param>
+            <exception cref="T:Lykke.Service.BlockchainApi.Client.ErrorResponseException">
+            Among <see cref="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.Unknown"/> error next error codes can be specified:
+            - <see cref="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.AmountIsTooSmall"/>
+            - <see cref="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.NotEnoughBalance"/>
+            </exception>
+            <exception cref="T:System.NotSupportedException">
+            Operation is not supported for the given blockchain. See <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetCapabilitiesAsync"/>
+            </exception>
+            <exception cref="T:Lykke.Service.BlockchainApi.Client.TransactionAlreadyBroadcastedException">
+            Transaction has been already broadcasted or even removed
+            </exception>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.RebuildTransactionAsync(System.Guid,System.Decimal)">
+            <summary>
+            Optional method. <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetCapabilitiesAsync"/>
+            
+            Should rebuild not signed transaction with the specified fee factor, 
+            if applicable for the given blockchain. This should be implemented, 
+            if blockchain allows transaction rebuilding (substitution) with new fee. 
+            This will be called if transaction is stuck in the “in-progress” state for too long,
+            to try to execute transaction with higher fee. <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BuildSingleTransactionAsync(System.Guid,System.String,System.String,System.String,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset,System.Decimal,System.Boolean)"/> with 
+            the same <paramref name="operationId"/> should precede to the given call. 
+            Transaction should be rebuilt with parameters that were passed to the <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BuildSingleTransactionAsync(System.Guid,System.String,System.String,System.String,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset,System.Decimal,System.Boolean)"/>.
+            </summary>
+            
+            <param name="operationId">Lykke unique operation ID</param>
+            <param name="feeFactor">Multiplier for the transaction fee. Blockchain will multiply regular fee by this factor</param>
+            
+            <exception cref="T:Lykke.Service.BlockchainApi.Client.ErrorResponseException">
+            Among <see cref="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.Unknown"/> error next error codes can be specified:
+            - <see cref="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.AmountIsTooSmall"/>
+            - <see cref="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.NotEnoughBalance"/>
+            </exception>
+            <exception cref="T:System.NotSupportedException">
+            Operation is not supported for the given blockchain. See <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetCapabilitiesAsync"/>
+            </exception>
+            <exception cref="T:Lykke.Service.BlockchainApi.Client.TransactionAlreadyBroadcastedException">
+            Transaction has been already broadcasted or even removed
+            </exception>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BroadcastTransactionAsync(System.Guid,System.String)">
+            <summary>
+            Should broadcast the signed transaction and start to observe its execution.
+            
+            Errors:
+            - 409 Conflict: transaction with specified operationId and signedTransaction is already broadcasted.
+            </summary>
+            <param name="operationId">Lykke unique operation ID</param>
+            <param name="signedTransaction">The signed transaction returned by the Blockchain.SignService after signing</param>
+            <returns>Transaction broadcasting result </returns>
+            <exception cref="T:Lykke.Service.BlockchainApi.Client.ErrorResponseException">
+            Among <see cref="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.Unknown"/> error next error codes can be specified:
+            - <see cref="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.AmountIsTooSmall"/>
+            - <see cref="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.NotEnoughBalance"/>
+            - <see cref="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.BuildingShouldBeRepeated"/>
+            </exception>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.TryGetBroadcastedSingleTransactionAsync(System.Guid,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)">
+            <summary>
+            Should return broadcasted  transaction by the operationId. All transactions with single input and output, that were broadcasted 
+            by the <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BroadcastTransactionAsync(System.Guid,System.String)"/> should be available here.
+            </summary>
+            <param name="operationId">Operation ID</param>
+            <param name="asset">Transaction asset for amount calculation</param>
+            <returns>Broadcasted transaction or null</returns>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetBroadcastedSingleTransactionAsync(System.Guid,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)">
+            <summary>
+            Should return broadcasted transaction be the operationId. All transactions with single input and output, that were broadcasted 
+            by the <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BroadcastTransactionAsync(System.Guid,System.String)"/> should be available here
+            </summary>
+            <param name="operationId">Operation ID</param>
+            <param name="asset">Transaction asset for amount calculation</param>
+            <exception cref="T:Lykke.Service.BlockchainApi.Client.ErrorResponseException">Status code: <see cref="F:System.Net.HttpStatusCode.NoContent"/> - transaction is not found</exception>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.TryGetBroadcastedTransactionWithManyInputsAsync(System.Guid,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)">
+            <summary>
+            Should return broadcasted transaction be the operationId. All transactions with many inputs, that were broadcasted 
+            by the <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BroadcastTransactionAsync(System.Guid,System.String)"/> should be available here
+            </summary>
+            <param name="operationId">Operation ID</param>
+            <param name="asset">Transaction asset for amount calculation</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetBroadcastedTransactionWithManyInputsAsync(System.Guid,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)">
+            <summary>
+            Should return broadcasted transaction be the operationId. All transactions with many outputs, that were broadcasted 
+            by the <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BroadcastTransactionAsync(System.Guid,System.String)"/> should be available here
+            </summary>
+            <param name="operationId">Operation ID</param>
+            <param name="asset">Transaction asset for amount calculation</param>
+            <exception cref="T:Lykke.Service.BlockchainApi.Client.ErrorResponseException">Status code: <see cref="F:System.Net.HttpStatusCode.NoContent"/> - transaction is not found</exception>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.TryGetBroadcastedTransactionWithManyOutputsAsync(System.Guid,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)">
+            <summary>
+            Should return broadcasted transaction be the operationId. All transactions with many inputs, that were broadcasted 
+            by the <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BroadcastTransactionAsync(System.Guid,System.String)"/> should be available here
+            </summary>
+            <param name="operationId">Operation ID</param>
+            <param name="asset">Transaction asset for amount calculation</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetBroadcastedTransactionWithManyOutputsAsync(System.Guid,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)">
+            <summary>
+            Should return broadcasted transaction be the operationId. All transactions with many outputs, that were broadcasted 
+            by the <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BroadcastTransactionAsync(System.Guid,System.String)"/> should be available here
+            </summary>
+            <param name="operationId">Operation ID</param>
+            <param name="asset">Transaction asset for amount calculation</param>
+            <exception cref="T:Lykke.Service.BlockchainApi.Client.ErrorResponseException">Status code: <see cref="F:System.Net.HttpStatusCode.NoContent"/> - transaction is not found</exception>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.ForgetBroadcastedTransactionsAsync(System.Guid)">
+            <summary> 
+            Should remove specified transaction from the broadcasted transactions.
+            Should affect transactions returned by the
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetBroadcastedSingleTransactionAsync(System.Guid,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)"/> and <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.TryGetBroadcastedSingleTransactionAsync(System.Guid,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)"/>
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.StartHistoryObservationOfOutgoingTransactionsAsync(System.String)">
+            <summary>
+            Should start observation of the transactions that transfer fund from the address. 
+            Should affect result of the <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetHistoryOfOutgoingTransactionsAsync(System.String,System.String,System.Int32,System.Func{System.String,System.Int32})"/>.
+            </summary>
+            <param name="address">Address for which outgoing transactions history should be observed</param>
+            <returns>
+            true - if transactions observation is started. 
+            false - if transactions observation was already started fot the given <paramref name="address"/>
+            </returns>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.StartHistoryObservationOfIncomingTransactionsAsync(System.String)">
+            <summary>
+            Should start observation of the transactions that transfer fund to the address. 
+            Should affect result of the <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetHistoryOfIncomingTransactionsAsync(System.String,System.String,System.Int32,System.Func{System.String,System.Int32})"/>.
+            </summary>
+            <param name="address">Address for which incoming transactions history should be observed</param>
+            <returns>
+            true - if transactions observation is started. 
+            false - if transactions observation was already started fot the given <paramref name="address"/>
+            </returns>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetHistoryOfOutgoingTransactionsAsync(System.String,System.String,System.Int32,System.Func{System.String,System.Int32})">
+            <summary>
+            Should return completed transactions that transfer fund from the <paramref name="address"/> and that 
+            were broadcasted after the transaction with the hash equal to the <paramref name="afterHash"/>.
+            Should include transactions broadcasted not using this API.
+            If there are no transactions to return, empty array should be returned.
+            Amount of the returned transactions should not exceed <paramref name="take"/>.
+            </summary>
+            <param name="address">
+            Address for which outgoing transactions history should be returned
+            For the blockchains with address mapping, it could be virtual or underlying address.
+            </param>
+            <param name="afterHash">Hash of the transaction after which history should be returned</param>
+            <param name="take">Maximum transactions to return</param>
+            <param name="assetAccuracyProvider">Delegate which should provide blockchain asset pair accuracy by the blockchain asset ID</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetHistoryOfIncomingTransactionsAsync(System.String,System.String,System.Int32,System.Func{System.String,System.Int32})">
+            <summary>
+            Should return completed transactions that transfer fund to the <paramref name="address"/> and that 
+            were broadcasted after the transaction with the hash equal to the <paramref name="afterHash"/>.
+            Should include transactions broadcasted not using this API.
+            If there are no transactions to return, empty array should be returned.
+            Amount of the returned transactions should not exceed <paramref name="take"/>.
+            </summary>
+            <param name="address">
+            Address for which incoming transactions history should be returned
+            For the blockchains with address mapping, it could be virtual or underlying address.
+            </param>
+            <param name="afterHash">Hash of the transaction after which history should be returned</param>
+            <param name="take">Maximum transactions to return</param>
+            <param name="assetAccuracyProvider">Delegate which should provide blockchain asset pair accuracy by the blockchain asset ID</param>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.StopHistoryObservationOfOutgoingTransactionsAsync(System.String)">
+            <summary>
+            Should stop observation of the transactions that transfer fund from the address. 
+            Should affect result of the <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetHistoryOfOutgoingTransactionsAsync(System.String,System.String,System.Int32,System.Func{System.String,System.Int32})"/>.
+            </summary>
+            <param name="address">Address for which outgoing transactions history observation should be stopped</param>
+            <returns>
+            true - if transactions observation is stopped. 
+            false - if transactions observation for the given <paramref name="address"/> was not started yet 
+            </returns>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.StopHistoryObservationOfIncomingTransactionsAsync(System.String)">
+            <summary>
+            Should stop observation of the transactions that transfer fund to the address. 
+            Should affect result of the <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetHistoryOfIncomingTransactionsAsync(System.String,System.String,System.Int32,System.Func{System.String,System.Int32})"/>.
+            </summary>
+            <param name="address">Address for which incoming transactions history should be stopped</param>
+            <returns>
+            true - if transactions observation is sopped. 
+            false - if transactions observation for the given <paramref name="address"/> was not started yet
+            </returns>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.Models.BaseBroadcastedTransaction">
+            <summary>
+            Base broadcasted transaction
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BaseBroadcastedTransaction.OperationId">
+            <summary>
+            Lykke unique operation ID
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BaseBroadcastedTransaction.State">
+            <summary>
+            State
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BaseBroadcastedTransaction.Timestamp">
+            <summary>
+            Transaction moment in UTC
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BaseBroadcastedTransaction.Fee">
+            <summary>
+            Fee
+            Should be positive number if the <see cref="P:Lykke.Service.BlockchainApi.Client.Models.BaseBroadcastedTransaction.State"/> is <see cref="F:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionState.Completed"/>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BaseBroadcastedTransaction.Hash">
+            <summary>
+            Transaction hash as base64 string.
+            Should be non empty if the <see cref="P:Lykke.Service.BlockchainApi.Client.Models.BaseBroadcastedTransaction.State"/> is <see cref="F:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionState.Completed"/>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BaseBroadcastedTransaction.Error">
+            <summary>
+            Error description
+            Should be non empty if the <see cref="P:Lykke.Service.BlockchainApi.Client.Models.BaseBroadcastedTransaction.State"/> is <see cref="F:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionState.Failed"/>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BaseBroadcastedTransaction.ErrorCode">
+            <summary>
+            Error code
+            Should be non empty if the <see cref="P:Lykke.Service.BlockchainApi.Client.Models.BaseBroadcastedTransaction.State"/> is <see cref="F:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionState.Failed"/>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BaseBroadcastedTransaction.Block">
+            <summary>
+            Incremental ID of the moment, when the transaction
+            state changing is detected. It should be the same
+            sequence as for <see cref="P:Lykke.Service.BlockchainApi.Client.Models.WalletBalance.Block"/>. 
+            For the most blockchains it could be the block number/height.
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset">
+            <summary>
+            Blockchain asset
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset.AssetId">
+            <summary>
+            AssetId
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset.Address">
+            <summary>
+            Optional
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset.Accuracy">
+            <summary>
+            Max number of significant decimal digits to the right of the decimal point in the asset amount
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.Models.BlockchainCapabilities">
+            <summary>
+            Blockchain capabilities
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BlockchainCapabilities.IsTransactionsRebuildingSupported">
+            <summary>
+            Should be true, if <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.RebuildTransactionAsync(System.Guid,System.Decimal)"/> is supported
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BlockchainCapabilities.AreManyInputsSupported">
+            <summary>
+            Should be true if 
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BuildTransactionWithManyInputsAsync(System.Guid,System.Collections.Generic.IEnumerable{Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionInput},System.String,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)"/> and
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetBroadcastedTransactionWithManyInputsAsync(System.Guid,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)"/> 
+            are supported
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BlockchainCapabilities.AreManyOutputsSupported">
+            <summary>
+            Should be true if 
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BuildTransactionWithManyOutputsAsync(System.Guid,System.String,System.String,System.Collections.Generic.IEnumerable{Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionOutput},Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)"/> and
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetBroadcastedTransactionWithManyOutputsAsync(System.Guid,Lykke.Service.BlockchainApi.Client.Models.BlockchainAsset)"/> 
+            are supported
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BlockchainCapabilities.IsPublicAddressExtensionRequired">
+            <summary>
+            If blockchain requires additional field to represent
+            public address to use it as a deposit destination, 
+            then this flag should be true.
+            <see cref="P:Lykke.Service.BlockchainApi.Client.Models.BlockchainConstants.PublicAddressExtension"/> should be non empty,
+            if this flag is true.
+            For example: Address Tag in the Ripple.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BlockchainCapabilities.IsReceiveTransactionRequired">
+            <summary>
+            If blockchain requires broadcasting of the “receive”
+            transaction in order to accomplish funds transferring
+            to the destination address, then this flag should be
+            true and <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.BuildSingleReceiveTransactionAsync(System.Guid,System.String)"/>
+            method should be implemented.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BlockchainCapabilities.CanReturnExplorerUrl">
+            <summary>
+            Should be true if
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetAddressExplorerUrlAsync(System.String)"/>
+            is supported.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BlockchainCapabilities.IsAddressMappingRequired">
+            <summary>
+            Should be true if 
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetUnderlyingAddressAsync(System.String)"/>
+            <see cref="M:Lykke.Service.BlockchainApi.Client.IBlockchainApiClient.GetVirtualAddressAsync(System.String)"/>
+            calls are supported.
+            Could be used by some blockchains, with dynamically
+            changed actual address of the wallets. They could
+            generate static virtual address, with which common
+            part will operate and update underlying (blockchain
+            native) address for the given virtual address as
+            needed.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BlockchainCapabilities.IsExclusiveWithdrawalsRequired">
+            <summary>
+            Should be true if
+            blockchain doesn’t allow to start withdrawal
+            from some address, if there are in progress
+            deposits or withdrawals to the same address.
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.Models.BlockchainConstants">
+            <summary>
+            Blockchain constants
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.Models.BlockchainHealthProbe">
+            <summary>
+            Blockchain API health probe
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BlockchainHealthProbe.Name">
+            <summary>
+            Blockchain API name
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BlockchainHealthProbe.Version">
+            <summary>
+            Blockchain API version
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BlockchainHealthProbe.Env">
+            <summary>
+            Blockchain API ENV_INFO
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BlockchainHealthProbe.IsDebug">
+            <summary>
+            Blockchain API debug build flag
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BlockchainHealthProbe.ContractVersion">
+            <summary>
+            Contract version supported by the blockchain API
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.Models.BroadcastedSingleTransaction">
+            <summary>
+            Broadcasted single input and output transaction
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BroadcastedSingleTransaction.Amount">
+            <summary>
+            Amount without fee
+            Should be positive number if the <see cref="P:Lykke.Service.BlockchainApi.Client.Models.BaseBroadcastedTransaction.State"/> is <see cref="F:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionState.Completed"/>
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.Models.BroadcastedTransactionInput">
+            <summary>
+            Broadcasted transaction input
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BroadcastedTransactionInput.FromAddress">
+            <summary>
+            Source address
+            
+            For the blockchains with address mapping,
+            this could be virtual address.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BroadcastedTransactionInput.Amount">
+            <summary>
+            Amount to transfer from the <see cref="P:Lykke.Service.BlockchainApi.Client.Models.BroadcastedTransactionInput.FromAddress"/> or actual amount, 
+            which is transferred from the <see cref="P:Lykke.Service.BlockchainApi.Client.Models.BroadcastedTransactionInput.FromAddress"/>, depending on the context.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.Models.BroadcastedTransactionInput.#ctor(Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionInputContract,System.Int32)">
+            <summary>
+            Transaction input
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.Models.BroadcastedTransactionOutput">
+            <summary>
+            Broadcasted transaction output
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BroadcastedTransactionOutput.ToAddress">
+            <summary>
+            Destination address
+            
+            For the blockchains with address mapping,
+            this could be virtual or underlying address.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BroadcastedTransactionOutput.Amount">
+            <summary>
+            Amount to transfer from the <see cref="P:Lykke.Service.BlockchainApi.Client.Models.BroadcastedTransactionOutput.ToAddress"/> or actual amount, 
+            which is transferred from the <see cref="P:Lykke.Service.BlockchainApi.Client.Models.BroadcastedTransactionOutput.ToAddress"/>, depending on the context.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.Models.BroadcastedTransactionOutput.#ctor(Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionOutputContract,System.Int32)">
+            <summary>
+            Broadcasted transaction output
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.Models.BroadcastedTransactionWithManyInputs">
+            <summary>
+            Broadcasted transaction with many inputs
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BroadcastedTransactionWithManyInputs.Inputs">
+            <summary>
+            Sources
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.Models.BroadcastedTransactionWithManyOutputs">
+            <summary>
+            Broadcasted transaction with many outputs
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BroadcastedTransactionWithManyOutputs.Outputs">
+            <summary>
+            Sources
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionInput">
+            <summary>
+            Building transaction input
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionInput.FromAddress">
+            <summary>
+            Source address
+            
+            For the blockchains with address mapping,
+            this could be virtual address.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionInput.FromAddressContext">
+            <summary>
+            Source address context.
+            Can be emoty
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionInput.Amount">
+            <summary>
+            Amount to transfer from the <see cref="P:Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionInput.FromAddress"/> or actual amount, 
+            which is transferred from the <see cref="P:Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionInput.FromAddress"/>, depending on the context.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionInput.#ctor(System.String,System.String,System.Decimal)">
+            <summary>
+            Building transaction input
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionInput.ToContract(System.Int32)">
+            <summary>
+            Converts transaction input to the contract DTO
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionOutput">
+            <summary>
+            Building transaction output
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionOutput.ToAddress">
+            <summary>
+            Destination address
+            
+            For the blockchains with address mapping,
+            this could be virtual or underlying address.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionOutput.Amount">
+            <summary>
+            Amount to transfer from the <see cref="P:Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionOutput.ToAddress"/> or actual amount, 
+            which is transferred from the <see cref="P:Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionOutput.ToAddress"/>, depending on the context.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionOutput.#ctor(System.String,System.Decimal)">
+            <summary>
+            Building transaction output
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.Models.BuildingTransactionOutput.ToContract(System.Int32)">
+            <summary>
+            Converts transaction output to the contract DTO
+            </summary>
+            <param name="assetAccuracy"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.Models.EnumerationStatistics">
+            <summary>
+            Statistics of the items enumeration
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.EnumerationStatistics.ItemsCount">
+            <summary>
+            Items count that was enumerated
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.EnumerationStatistics.BatchesCount">
+            <summary>
+            Batches count of the items count that was enumerated
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.EnumerationStatistics.Elapsed">
+            <summary>
+            Time that was elapsed for the enumeration
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.HistoricalTransaction.Timestamp">
+            <summary>
+            Transaction moment in UTC
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.HistoricalTransaction.FromAddress">
+            <summary>
+            Source address
+            
+            For the blockchains with address mapping,
+            this should be underlying (real) address
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.HistoricalTransaction.ToAddress">
+            <summary>
+            Destination address
+            
+            For the blockchains with address mapping,
+            this should be underlying (real) address
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.HistoricalTransaction.AssetId">
+            <summary>
+            Asset ID
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.HistoricalTransaction.Amount">
+            <summary>
+            Amount without fee
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.HistoricalTransaction.Hash">
+            <summary>
+            Transaction hash as base64 string.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.HistoricalTransaction.TransactionType">
+            <summary>
+            Type of the transaction.
+            Can be empty.
+            Should be non empty if the flag
+            <see cref="P:Lykke.Service.BlockchainApi.Client.Models.BlockchainCapabilities.IsReceiveTransactionRequired"/> is true
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.Models.PublicAddressExtensionConstants">
+            <summary>
+            Blockchain public address extension constants
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.PublicAddressExtensionConstants.Separator">
+            <summary>
+            Separator character of the main part and extension
+            part of the wallet public address.
+            Should be a single character.
+            Implementation of the Blockchain.SignService and
+            the Blockchain.API should return main and extension
+            parts of the public address separated by this
+            character as atomic address. 
+            Lykke platform will pass atomic public address
+            consisted of the main and extension parts separated
+            by this character where applicable. Extension part
+            can be omitted, for example to represent Hot Wallet
+            address, if applicable.
+            Example:
+              separator: ‘$’
+              main public address: “Zgu2QfU9PDyvySPm”
+              public address extension: “180468”
+              atomic public address: “Zgu2QfU9PDyvySPm$180468”
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.PublicAddressExtensionConstants.DisplayName">
+            <summary>
+            Public address extension part name, which will
+            displayed to the user whenever public address
+            will be displayed or entered by the client.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.PublicAddressExtensionConstants.BaseDisplayName">
+            <summary>
+            Public address main part name, which will
+            displayed to the user whenever public address
+            will be displayed or entered by the client.
+            If this field is empty, then default name
+            will be used.
+            Can be Empty.
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.Models.TransactionBroadcastingResult">
+            <summary>
+            Transaction building result
+            </summary>
+        </member>
+        <member name="F:Lykke.Service.BlockchainApi.Client.Models.TransactionBroadcastingResult.Success">
+            <summary>
+            Transaction is broadcasted successfully
+            </summary>
+        </member>
+        <member name="F:Lykke.Service.BlockchainApi.Client.Models.TransactionBroadcastingResult.AlreadyBroadcasted">
+            <summary>
+            Transaction with specified operation ID is already broadcasted
+            </summary>
+        </member>
+        <member name="F:Lykke.Service.BlockchainApi.Client.Models.TransactionBroadcastingResult.AmountIsTooSmall">
+            <summary>
+            Amount is too small to execute the transaction
+            </summary>
+        </member>
+        <member name="F:Lykke.Service.BlockchainApi.Client.Models.TransactionBroadcastingResult.NotEnoughBalance">
+            <summary>
+            Transaction can’t be executed due to balance insufficiency on the source address
+            </summary>
+        </member>
+        <member name="F:Lykke.Service.BlockchainApi.Client.Models.TransactionBroadcastingResult.BuildingShouldBeRepeated">
+            <summary>
+            Transaction should be built, signed and broadcasted again
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.Models.TransactionBuildingResult">
+            <summary>
+            Transaction building result
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.TransactionBuildingResult.TransactionContext">
+            <summary>
+            The transaction context in the blockchain 
+            specific format, which should be passed to the
+            Blockchain.SignService for signing
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.Models.WalletBalance">
+            <summary>
+            Wallet balance
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.WalletBalance.Address">
+            <summary>
+            Wallet address
+            
+            For the blockchains with address mapping, this should
+            be virtual address
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.WalletBalance.AssetId">
+            <summary>
+            Asset IDs
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.WalletBalance.Balance">
+            <summary>
+            Wallet balance
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.WalletBalance.Block">
+            <summary>
+            Incremental ID of the moment, when balance is updated. It should be the same sequence
+            as for the <see cref="P:Lykke.Service.BlockchainApi.Client.Models.BaseBroadcastedTransaction.Block"/>
+            For the most blockchains it could be the block number/height.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.Models.WalletBalance.IsAddressCompromised">
+            <summary>
+            Flag that indicate, if given address is 
+            compromised and can’t be used for further 
+            for input transactions.
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.TransactionAlreadyBroadcastedException">
+            <summary>
+            This exception could be thrown on transaction building, if transaction has been alread
+            broadcasted or even removed
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.TransactionAlreadyBroadcastedException.#ctor(Lykke.Service.BlockchainApi.Client.ErrorResponseException)">
+            <summary>
+            This exception could be thrown on transaction building, if transaction has been alread
+            broadcasted or even removed
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi">
+            <inheritdoc />
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.Client">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.GetIsAliveAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.GetCapabilitiesAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.GetConstantsAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.GetAssetsAsync(System.Int32,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.GetAssetAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.IsAddressValidAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.GetAddressExplorerUrlsAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.GetUnderlyingAddressAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.GetVirtualAddressAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.StartBalanceObservationAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.StopBalanceObservationAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.GetWalletBalancesAsync(System.Int32,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.BuildSingleTransactionAsync(Lykke.Service.BlockchainApi.Contract.Transactions.BuildSingleTransactionRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.BuildSingleReceiveTransactionAsync(Lykke.Service.BlockchainApi.Contract.Transactions.BuildSingleReceiveTransactionRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.BuildTransactionWithManyInputsAsync(Lykke.Service.BlockchainApi.Contract.Transactions.BuildTransactionWithManyInputsRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.BuildTransactionWithManyOutputsAsync(Lykke.Service.BlockchainApi.Contract.Transactions.BuildTransactionWithManyOutputsRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.RebuildTransactionAsync(Lykke.Service.BlockchainApi.Contract.Transactions.RebuildTransactionRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.BroadcastTransactionAsync(Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastTransactionRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.GetBroadcastedSingleTransactionAsync(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.GetBroadcastedTransactionWithManyInputsAsync(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.GetBroadcastedTransactionWithManyOutputsAsync(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.ForgetBroadcastedTransactionAsync(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.StartHistoryObservationOfOutgoingTransactionsAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.StartHistoryObservationOfIncomingTransactionsAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.GetHistoryOfOutgoingTransactionsAsync(System.String,System.String,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.GetHistoryOfIncomingTransactionsAsync(System.String,System.String,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.StopHistoryObservationOfOutgoingTransactionsAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Client.AutoGeneratedIBlockchainApi.StopHistoryObservationOfIncomingTransactionsAsync(System.String)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
