@@ -1,0 +1,1017 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lykke.Service.BlockchainApi.Contract</name>
+    </assembly>
+    <members>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Addresses.AddressValidationResponse">
+            <summary>
+            Address validation result.
+            Response for the:
+            - [GET] /api/addresses/{address}/validity
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Addresses.AddressValidationResponse.IsValid">
+            <summary>
+            Flag, which indicates is address valid
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Addresses.UnderlyingAddressResponse">
+            <summary>
+            Underlying (blockchain native) address contract
+            Used in:
+            - [GET] /api/addresses/{address}/underlying
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Addresses.UnderlyingAddressResponse.UnderlyingAddress">
+            <summary>
+            Underlying address
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Addresses.VirtualAddressResponse">
+            <summary>
+            Virtual address contract
+            Used in:
+            - [GET] /api/addresses/{address}/virtual
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Addresses.VirtualAddressResponse.VirtualAddress">
+            <summary>
+            Virtual  address
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Assets.AssetContract">
+            <summary>
+            Blockchain asset contract.
+            Used in:
+            - [GET] /api/assets response
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Assets.AssetContract.AssetId">
+            <summary>
+            Asset ID
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Assets.AssetContract.Address">
+            <summary>
+            Asset address, which identifies 
+            asset in the blockchain, if applicable for the given blockchain.
+            Can be empty.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Assets.AssetContract.Name">
+            <summary>
+            Asset display name
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Assets.AssetContract.Accuracy">
+            <summary>
+            Asset accuracy - maximum number
+            of significant decimal digits to the right 
+            of the decimal point in the asset amount.
+            Valid range: [0..28]
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Assets.AssetResponse">
+            <summary>
+            Blockchain asset.
+            Response for the:
+            - [GET] /api/assets/{assetId}
+                Errors:
+                    - 204 No Content: specified asset not found
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Balances.WalletBalanceContract">
+            <summary>
+            Blockchain wallet balance contract.
+            Used in:
+            - [GET] /api/balances?take=integer&amp;skip=integer
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Balances.WalletBalanceContract.Address">
+            <summary>
+            Wallet address
+            
+            For the blockchains with address mapping,
+            this should be virtual address
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Balances.WalletBalanceContract.AssetId">
+            <summary>
+            Asset ID
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Balances.WalletBalanceContract.Balance">
+            <summary>
+            Balance is integer as string, aligned 
+            to the asset accuracy. Actual value can be 
+            writen using <see cref="M:Lykke.Service.BlockchainApi.Contract.Conversions.CoinsToContract(System.Decimal,System.Int32)"/>
+            and can be read using <see cref="M:Lykke.Service.BlockchainApi.Contract.Conversions.CoinsFromContract(System.String,System.Int32)"/>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Balances.WalletBalanceContract.Block">
+            <summary>
+            Incremental ID of the moment, when balance
+            is updated. It should be the same sequence
+            as for block in the 
+            [GET] /api/transactions/broadcast/* response
+            For the most blockchains it could be the 
+            block number/height
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Balances.WalletBalanceContract.IsAddressCompromised">
+            <summary>
+            Flag that indicate, if given address is 
+            compromised and can’t be used for further 
+            for input transactions.
+            Optional. If omitted, will be interpreted as
+            false
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode">
+            <summary>
+            Generic error codes
+            </summary>
+        </member>
+        <member name="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.Unknown">
+            <summary>
+            Any error that does not fit another codes
+            </summary>
+        </member>
+        <member name="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.AmountIsTooSmall">
+            <summary>
+            Amount is too small to execute the transaction
+            </summary>
+        </member>
+        <member name="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.NotEnoughBalance">
+            <summary>
+            Transaction can’t be executed due to balance insufficiency on the source address
+            </summary>
+        </member>
+        <member name="F:Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode.BuildingShouldBeRepeated">
+            <summary>
+            Transaction should be built, signed and broadcasted again
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.BlockchainErrorResponse">
+            <summary>
+            Generic error response for blockchain API
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.BlockchainErrorResponse.ErrorCode">
+            <summary>
+            Error code
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Contract.BlockchainErrorResponse.FromUnknownError(System.String)">
+            <summary>
+            Creates error response with unknown generic error code
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Contract.BlockchainErrorResponse.FromKnownError(Lykke.Service.BlockchainApi.Contract.BlockchainErrorCode)">
+            <summary>
+            Creates error response with well-known transaction execution error code
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.BlockchainIsAliveResponse">
+            <summary>
+            Response for the:
+                [GET] /api/isalive
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.BlockchainIsAliveResponse.ContractVersion">
+            <summary>
+            Should return implemented contract version.
+            Can be empty.
+            Empty value should be treated as “1.0.0”
+            For example: “1.0.0”
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Common.CapabilitiesResponse">
+            <summary>
+            Blockchain capabilities contract.
+            Response for the:
+            	[GET] /api/capabilities
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Common.CapabilitiesResponse.IsTransactionsRebuildingSupported">
+            <summary>
+            Should be true, if [PUT] /api/transactions call
+            is supported
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Common.CapabilitiesResponse.AreManyInputsSupported">
+            <summary>
+            Should be true if 
+            [POST] /api/transactions/many-inputs and
+            [GET] /api/transactions/broadcasted/many-inputs calls
+            are supported
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Common.CapabilitiesResponse.AreManyOutputsSupported">
+            <summary>
+            Should be true if 
+            [POST] /api/transactions/many-outputs and
+            [GET] /api/transactions/broadcasted/many-outputs calls
+            are supported
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Common.CapabilitiesResponse.IsTestingTransfersSupported">
+            <summary>
+            Should be true if 
+            [POST] /api/testing/transfers call is supported.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Common.CapabilitiesResponse.IsPublicAddressExtensionRequired">
+            <summary>
+            If blockchain requires additional field to represent
+            public address to use it as a deposit destination, 
+            then this flag should be true.
+            publicAddressExtension section in the 
+            [GET] /api/constants response should be non empty,
+            if this flag is true.
+            For example: Address Tag in the Ripple.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Common.CapabilitiesResponse.IsReceiveTransactionRequired">
+            <summary>
+            If blockchain requires broadcasting of the “receive”
+            transaction in order to accomplish funds transferring
+            to the destination address, then this flag should be
+            true and [POST] /api/transactions/single/receive
+            endpoint should be implemented.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Common.CapabilitiesResponse.CanReturnExplorerUrl">
+            <summary>
+            Should be true if
+            [GET] /api/addresses/{address}/explorer-url
+            call is supported.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Common.CapabilitiesResponse.IsAddressMappingRequired">
+            <summary>
+            Should be true if 
+            [GET] /api/addresses/{address}/underlying and
+            [GET] /api/addresses/{address}/virtual calls are
+            supported.
+            Could be used by some blockchains, with dynamically
+            changed actual address of the wallets. They could
+            generate static virtual address, with which common
+            part will operate and update underlying (blockchain
+            native) address for the given virtual address as
+            needed.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Common.CapabilitiesResponse.IsExclusiveWithdrawalsRequired">
+            <summary>
+            Should be true if
+            blockchain doesn’t allow to start withdrawal
+            from some address, if there are in progress
+            deposits or withdrawals to the same address.
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Common.ConstantsResponse">
+            <summary>
+            Blockchain constants contract.
+            Response for the:
+                [GET] /api/constants
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Common.ConstantsResponse.PublicAddressExtension">
+            <summary>
+            If blockchain requires additional field to represent
+            public address to use it as a deposit destination, 
+            then this section should be non empty.
+            See isPublicAddressExtensionRequired in the 
+            [GET] /api/capabilities response.
+            Can be empty.
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Common.PublicAddressExtensionConstantsContract">
+            <summary>
+            Blockchain public address extension constants contract.
+            Part of the <see cref="T:Lykke.Service.BlockchainApi.Contract.Common.CapabilitiesResponse"/>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Common.PublicAddressExtensionConstantsContract.Separator">
+            <summary>
+            Separator character of the main part and extension
+            part of the wallet public address.
+            Should be a single character.
+            Implementation of the Blockchain.SignService and
+            the Blockchain.API should return main and extension
+            parts of the public address separated by this
+            character as atomic address. 
+            Lykke platform will pass atomic public address
+            consisted of the main and extension parts separated
+            by this character where applicable. Extension part
+            can be omitted, for example to represent Hot Wallet
+            address, if applicable.
+            Example:
+              separator: ‘$’
+              main public address: “Zgu2QfU9PDyvySPm”
+              public address extension: “180468”
+              atomic public address: “Zgu2QfU9PDyvySPm$180468”
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Common.PublicAddressExtensionConstantsContract.DisplayName">
+            <summary>
+            Public address extension part name, which will
+            displayed to the user whenever public address
+            will be displayed or entered by the client.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Common.PublicAddressExtensionConstantsContract.BaseDisplayName">
+            <summary>
+            Public address main part name, which will
+            displayed to the user whenever public address
+            will be displayed or entered by the client.
+            If this field is empty, then default name
+            will be used.
+            Can be Empty.
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.ConversionException">
+            <summary>
+            Conversion exception
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Contract.ConversionException.#ctor(System.String,System.Type,System.Type,System.Object,System.Exception)">
+            <summary>
+            Conversion exception
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Conversions">
+            <summary>
+            Provides contract conversions
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Contract.Conversions.CoinsToContract(System.Decimal,System.Int32)">
+            <summary>
+            Converts coins amount from the <see cref="T:System.Decimal"/> to the 
+            contract string representation as the integer aligned to the
+            asset accuracy
+            </summary>
+            <exception cref="T:Lykke.Service.BlockchainApi.Contract.ConversionException">Throws if conversion can't be done</exception>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Contract.Conversions.CoinsFromContract(System.String,System.Int32)">
+            <summary>
+            Converts coins amount from the the contract string representation as 
+            the integer aligned to the asset accuracy to the <see cref="T:System.Decimal"/>
+            </summary>
+            <exception cref="T:Lykke.Service.BlockchainApi.Contract.ConversionException">Throws if conversion can't be done</exception>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.PaginationResponse">
+            <summary>
+            <see cref="T:Lykke.Service.BlockchainApi.Contract.PaginationResponse`1"/> factory
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.BlockchainApi.Contract.PaginationResponse.From``1(System.String,System.Collections.Generic.IReadOnlyList{``0})">
+            <summary>
+            Creates <see cref="T:Lykke.Service.BlockchainApi.Contract.PaginationResponse`1"/> from the given 
+            <paramref name="continuation"/> and <paramref name="items"/>
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.PaginationResponse`1">
+            <summary>
+            Generic pagination response
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.PaginationResponse`1.Continuation">
+            <summary>
+            Continuation token, that
+            can be used to continue data reading
+            from the current position.
+            Should be null or empty string if no more data
+            to read.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.PaginationResponse`1.Items">
+            <summary>
+            Current batch of the items.
+            Should be empty array if there are no items
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Testing.TestingTransferRequest">
+            <summary>
+            Testing transfer request contract.
+            Request body for the:
+                [POST] /api/testing/transfers
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Testing.TestingTransferRequest.FromAddress">
+            <summary>
+            Source address 
+            
+            For the blockchains with address mapping, this could
+            be virtual or underlying address
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Testing.TestingTransferRequest.FromPrivateKey">
+            <summary>
+            Source address private key
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Testing.TestingTransferRequest.ToAddress">
+            <summary>
+            Destination address
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Testing.TestingTransferRequest.AssetId">
+            <summary>
+            Asset ID
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Testing.TestingTransferRequest.Amount">
+            <summary>
+            Amount to transfer. Integer as string, aligned 
+            to the asset accuracy. Actual value can be 
+            writen using <see cref="M:Lykke.Service.BlockchainApi.Contract.Conversions.CoinsToContract(System.Decimal,System.Int32)"/>
+            and can be read using <see cref="M:Lykke.Service.BlockchainApi.Contract.Conversions.CoinsFromContract(System.String,System.Int32)"/>
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.BaseBroadcastedTransactionResponse">
+            <summary>
+            Base class for the broadcasted transaction contract
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseBroadcastedTransactionResponse.OperationId">
+            <summary>
+            Lykke unique operation ID
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseBroadcastedTransactionResponse.State">
+            <summary>
+            State of the transaction
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseBroadcastedTransactionResponse.Timestamp">
+            <summary>
+            Transaction moment as ISO 8601 in UTC
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseBroadcastedTransactionResponse.Fee">
+            <summary>
+            Fee. Is integer as string, aligned 
+            to the asset accuracy. Actual value can be 
+            writen using <see cref="M:Lykke.Service.BlockchainApi.Contract.Conversions.CoinsToContract(System.Decimal,System.Int32)"/>
+            and can be read using <see cref="M:Lykke.Service.BlockchainApi.Contract.Conversions.CoinsFromContract(System.String,System.Int32)"/>
+            Should be non empty if the <see cref="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseBroadcastedTransactionResponse.State"/> is <see cref="F:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionState.Completed"/>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseBroadcastedTransactionResponse.Hash">
+            <summary>
+            Transaction hash as base64 string.
+            Can be empty.
+            Should be non empty if the <see cref="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseBroadcastedTransactionResponse.State"/> is <see cref="F:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionState.Completed"/>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseBroadcastedTransactionResponse.Error">
+            <summary>
+            Error description.
+            Can be empty.
+            Should be non empty if the <see cref="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseBroadcastedTransactionResponse.State"/> is <see cref="F:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionState.Failed"/>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseBroadcastedTransactionResponse.ErrorCode">
+            <summary>
+            Error code.
+            Should be non empty if the <see cref="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseBroadcastedTransactionResponse.State"/> is <see cref="F:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionState.Failed"/>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseBroadcastedTransactionResponse.Block">
+            <summary>
+            Incremental ID of the moment, when the transaction
+            state changing is detected. It should be the same
+            sequence as for <see cref="P:Lykke.Service.BlockchainApi.Contract.Balances.WalletBalanceContract.Block"/>. 
+            For the most blockchains it could be the block number/height.
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.BaseTransactionBuildingResponse">
+            <summary>
+            Base response for the transaction building
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseTransactionBuildingResponse.TransactionContext">
+            <summary>
+            The transaction context in the blockchain 
+            specific format, which will be passed to the
+            Blockchain.SignService [POST] /api/sign
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.BaseTransactionInputContract">
+            <summary>
+            Base class for transaction input
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseTransactionInputContract.FromAddress">
+            <summary>
+            Source address
+            
+            For the blockchains with address mapping,
+            this could be virtual address.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseTransactionInputContract.Amount">
+            <summary>
+            Amount to transfer from the <see cref="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseTransactionInputContract.FromAddress"/> or actual amount, 
+            which is transferred from the <see cref="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseTransactionInputContract.FromAddress"/>, depending on the context.
+            Integer as string, aligned 
+            to the asset accuracy. Actual value can be 
+            writen using <see cref="M:Lykke.Service.BlockchainApi.Contract.Conversions.CoinsToContract(System.Decimal,System.Int32)"/>
+            and can be read using <see cref="M:Lykke.Service.BlockchainApi.Contract.Conversions.CoinsFromContract(System.String,System.Int32)"/>
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.BaseTransactionOutputContract">
+            <summary>
+            Base class for transaction output
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseTransactionOutputContract.ToAddress">
+            <summary>
+            Destination address
+            
+            For the blockchains with address mapping,
+            this could be virtual or underlying address.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseTransactionOutputContract.Amount">
+            <summary>
+            Amount to transfer to the <see cref="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseTransactionOutputContract.ToAddress"/> or actual amount, 
+            which is transferred to the <see cref="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseTransactionOutputContract.ToAddress"/>, depending on the context.
+            Integer as string, aligned 
+            to the asset accuracy. Actual value can be 
+            writen using <see cref="M:Lykke.Service.BlockchainApi.Contract.Conversions.CoinsToContract(System.Decimal,System.Int32)"/>
+            and can be read using <see cref="M:Lykke.Service.BlockchainApi.Contract.Conversions.CoinsFromContract(System.String,System.Int32)"/>
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedSingleTransactionResponse">
+            <summary>
+            Broadcasted single transaction contract
+            Response for the:
+            - [GET] /api/transactions/broadcast/{operationId}
+                Errors:
+                    - 204 No Content: specified transaction not found.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedSingleTransactionResponse.Amount">
+            <summary>
+            Amount without fee. Is integer as string, aligned 
+            to the asset accuracy. Actual value can be 
+            writen using <see cref="M:Lykke.Service.BlockchainApi.Contract.Conversions.CoinsToContract(System.Decimal,System.Int32)"/>
+            and can be read using <see cref="M:Lykke.Service.BlockchainApi.Contract.Conversions.CoinsFromContract(System.String,System.Int32)"/>
+            Should be non empty if the <see cref="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseBroadcastedTransactionResponse.State"/> is <see cref="F:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionState.Completed"/>
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionInputContract">
+            <summary>
+            Transaction input response contract
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionOutputContract">
+            <summary>
+            Broadcasted transaction output contract
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionState">
+            <summary>
+            State of the broadcasted transaction
+            </summary>
+        </member>
+        <member name="F:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionState.InProgress">
+            <summary>
+            Transaction is being in-progress
+            </summary>
+        </member>
+        <member name="F:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionState.Completed">
+            <summary>
+            Transaction is completed for sure
+            </summary>
+        </member>
+        <member name="F:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionState.Failed">
+            <summary>
+            transaction is failed, if applicable for the particular blockchain
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionWithManyInputsResponse">
+            <summary>
+            Broadcasted transaction with many inputs contract
+            Response for the:
+            - [GET] /api/transactions/broadcast/many-inputs/{operationId}
+                Errors:
+                    - 501 Not Implemented - function is not implemented in the blockchain.
+                    - 204 No content - specified transaction not found
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionWithManyInputsResponse.Inputs">
+            <summary>
+            Sources.
+            Should be non null if the <see cref="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseBroadcastedTransactionResponse.State"/> is <see cref="F:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionState.Completed"/>.
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionWithManyOutputsResponse">
+            <summary>
+            Broadcasted transaction with many outputs contract
+            Response for the:
+            - [GET] /api/transactions/broadcast/many-outputs/{operationId}
+                Errors:
+                    - 501 Not Implemented - function is not implemented in the blockchain.
+                    - 204 No content - specified transaction not found
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionWithManyOutputsResponse.Outputs">
+            <summary>
+            Destinations.
+            Should be non null if the <see cref="P:Lykke.Service.BlockchainApi.Contract.Transactions.BaseBroadcastedTransactionResponse.State"/> is <see cref="F:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastedTransactionState.Completed"/>.
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastTransactionRequest">
+            <summary>
+            Transaction broadcasting parameters.
+            Request body for the:
+            - [POST] /api/transactions/broadcast
+                Errors:
+                    - 409 Conflict: transaction with specified operationId and signedTransaction is already broadcasted.
+            </summary>
+            <remarks>
+            Service should broadcast the signed transaction and start to observe its execution
+            </remarks>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastTransactionRequest.OperationId">
+            <summary>
+            Lykke unique operation ID
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BroadcastTransactionRequest.SignedTransaction">
+            <summary>
+            The signed transaction returned by the
+            Blockchain.SignService [POST] /api/sign
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.BuildingTransactionInputContract">
+            <summary>
+            Transaction input request contract
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BuildingTransactionInputContract.FromAddressContext">
+            <summary>
+            Any non security sensitive data associated with
+            source wallet, that were returned by the
+            Blockchain.SignService [POST] /api/wallets.
+            Can be empty.
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.BuildingTransactionOutputContract">
+            <summary>
+            Building transaction output contract
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.BuildSingleReceiveTransactionRequest">
+            <summary>
+            Receive transaction building parameters.
+            Request body for the:
+                [POST] /api/transactions/single/receive
+            </summary>
+            <remarks>
+            Should build not signed “receive” transaction to receive funds previously sent 
+            from the single source to the single destination. If the receive transaction 
+            with the specified operationId has already been built by the 
+            [POST] /api/transactions/single/receive call, it should be ignored and regular
+            response (as in the first request) should be returned. This endpoint should be 
+            implemented by the blockchains, which distinguishes “send” and “receive” 
+            transactions and “receive” transaction requires the same private key as the “send”.
+            </remarks>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BuildSingleReceiveTransactionRequest.OperationId">
+            <summary>
+            Lykke unique operation ID
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BuildSingleReceiveTransactionRequest.SendTransactionHash">
+            <summary>
+            Hash of the “send” transaction
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.BuildSingleTransactionRequest">
+            <summary>
+            Transaction building parameters
+            Request body for the:
+            - [POST] /api/transactions
+            </summary>
+            <remarks>
+            Should build not signed transaction to transfer from the single source to the single destination. 
+            If the transaction with the specified operationId has already been built by one of the 
+            [POST] /api/transactions/* call, it should be ignored and regular response (as in the first request) 
+            should be returned. For the blockchains where “send” and “receive” transactions are distinguished, 
+            this endpoint builds “send” transactions.
+            </remarks>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BuildSingleTransactionRequest.OperationId">
+            <summary>
+            Lykke unique operation ID
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BuildSingleTransactionRequest.FromAddress">
+            <summary>
+            Source address.
+            
+            For the blockchains with address mapping,
+            this could be virtual address
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BuildSingleTransactionRequest.FromAddressContext">
+            <summary>
+            Any non security sensitive data associated with
+            source wallet, that were returned by the
+            Blockchain.SignService [POST] /api/wallets.
+            Can be empty.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BuildSingleTransactionRequest.ToAddress">
+            <summary>
+            Destination address
+            
+            For the blockchains with address mapping,
+            this could be virtual or underlying address
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BuildSingleTransactionRequest.AssetId">
+            <summary>
+            Asset ID to transfer
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BuildSingleTransactionRequest.Amount">
+            <summary>
+            Amount to transfer. Integer as string, aligned 
+            to the asset accuracy. Actual value can be 
+            writen using <see cref="M:Lykke.Service.BlockchainApi.Contract.Conversions.CoinsToContract(System.Decimal,System.Int32)"/>
+            and can be read using <see cref="M:Lykke.Service.BlockchainApi.Contract.Conversions.CoinsFromContract(System.String,System.Int32)"/>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BuildSingleTransactionRequest.IncludeFee">
+            <summary>
+            Flag, which indicates, that fee should be included
+            in the specified amount.
+            Example: 
+            if(includeFee == true) actualAmount = amount
+            if(includeFee == false) actualAmount = amount + fee
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.BuildTransactionResponse">
+            <summary>
+            Transaction building result.
+            Response for the:
+            - [POST] /api/transactions
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.BuildTransactionWithManyInputsRequest">
+            <summary>
+            Building parameters for the transaction with many inputs
+            Request body for the:
+            - [POST] /api/transactions/many-inputs
+                Errors:
+                    - 501 Not Implemented - function is not implemented in the blockchain.
+            </summary>
+            <remarks>
+            Service should build not signed transaction. 
+            If transaction with the specified operationId already was built,
+            it should be ignored and regular response should be returned.
+            Fee should be included in the specified amount.
+            </remarks>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BuildTransactionWithManyInputsRequest.OperationId">
+            <summary>
+            Lykke unique operation ID
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BuildTransactionWithManyInputsRequest.Inputs">
+            <summary>
+            Sources
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BuildTransactionWithManyInputsRequest.ToAddress">
+            <summary>
+            Destination address
+            
+            For the blockchains with address mapping,
+            this could be virtual or underlying address.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BuildTransactionWithManyInputsRequest.AssetId">
+            <summary>
+            Asset ID to transfer
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.BuildTransactionWithManyOutputsRequest">
+            <summary>
+            Building parameters for the transaction with many outputs
+            Request body for the:
+            - [POST] /api/transactions/many-outputs
+                Errors:
+                    - 501 Not Implemented - function is not implemented in the blockchain.
+            </summary>
+            <remarks>
+            Service should build not signed transaction. 
+            If transaction with the specified operationId already was built,
+            it should be ignored and regular response should be returned.
+            Fee should be added to the specified amount.
+            </remarks>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BuildTransactionWithManyOutputsRequest.OperationId">
+            <summary>
+            Lykke unique operation ID
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BuildTransactionWithManyOutputsRequest.FromAddress">
+            <summary>
+            Source address
+            
+            For the blockchains with address mapping,
+            this could be virtual address.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BuildTransactionWithManyOutputsRequest.FromAddressContext">
+            <summary>
+            Any non security sensitive data associated with
+            source wallet, that were returned by the
+            Blockchain.SignService [POST] /api/wallets.
+            Can be empty.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BuildTransactionWithManyOutputsRequest.Outputs">
+            <summary>
+            Destinations
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.BuildTransactionWithManyOutputsRequest.AssetId">
+            <summary>
+            Asset ID to transfer
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.HistoricalTransactionContract">
+            <summary>
+            Historical transaction contract.
+            Response for the:
+                [get] /api/transactions/history/from/{address}
+                [get] /api/transactions/history/to/{address}
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.HistoricalTransactionContract.Timestamp">
+            <summary>
+            Transaction moment as ISO 8601 in UTC
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.HistoricalTransactionContract.FromAddress">
+            <summary>
+            Source address
+            
+            For the blockchains with address mapping,
+            this should be underlying (real) address
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.HistoricalTransactionContract.ToAddress">
+            <summary>
+            Destination address
+            
+            For the blockchains with address mapping,
+            this should be underlying (real) address
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.HistoricalTransactionContract.AssetId">
+            <summary>
+            Asset ID
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.HistoricalTransactionContract.Amount">
+            <summary>
+            Amount without fee. Is integer as string, aligned 
+            to the asset accuracy. Actual value can be 
+            writen using <see cref="M:Lykke.Service.BlockchainApi.Contract.Conversions.CoinsToContract(System.Decimal,System.Int32)"/>
+            and can be read using <see cref="M:Lykke.Service.BlockchainApi.Contract.Conversions.CoinsFromContract(System.String,System.Int32)"/>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.HistoricalTransactionContract.Hash">
+            <summary>
+            Transaction hash as base64 string.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.HistoricalTransactionContract.TransactionType">
+            <summary>
+            Type of the transaction.
+            Can be empty.
+            Should be non empty if the flag
+            <see cref="P:Lykke.Service.BlockchainApi.Contract.Common.CapabilitiesResponse.IsReceiveTransactionRequired"/> is true
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.RebuildTransactionRequest">
+            <summary>
+            Transaction rebuilding parameters
+            Request body for the:
+            - [PUT] /api/transactions
+                Errors:
+                    - 501 Not Implemented - function is not implemented in the blockchain.
+            </summary>
+            <remarks>
+            Service sould rebuild not signed transaction with the specified fee factor, 
+            if applicable for the given blockchain. This should be implemented, 
+            if blockchain allows transaction rebuilding (substitution) with new fee. 
+            This will be called if transaction is stuck in the “in-progress” state for too long, 
+            to try to execute transaction with higher fee.
+            </remarks>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.RebuildTransactionRequest.OperationId">
+            <summary>
+            Lykke unique operation ID
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.RebuildTransactionRequest.FeeFactor">
+            <summary>
+            Multiplier for the transaction fee. 
+            Blockchain should multiply regular fee
+            by this factor.
+            x = feeFactor * regularFee
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.RebuildTransactionResponse">
+            <summary>
+            Transaction building result.
+            Response for the:
+            - [PUT] /api/transactions
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.SignedTransactionResponse">
+            <summary>
+            Transaction sign result.
+            Response for [POST] /api/sign
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.SignedTransactionResponse.SignedTransaction">
+            <summary>
+            Signed transaction, which will be used to broadcast the transaction by the Blockchain.Api
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.SignTransactionRequest">
+            <summary>
+            Transaction, that should be signed.
+            Request to [POST] /api/sign
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.SignTransactionRequest.PrivateKeys">
+            <summary>
+            Private keys, which were returned by the [POST] /api/wallets.
+            Multiple keys can be used for transactions with multiple inputs.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Transactions.SignTransactionRequest.TransactionContext">
+            <summary>
+            The transaction context in the blockchain specific format, 
+            which was returned by the Blockchain.Api [POST] /api/transactions or [PUT] /api/transactions.
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Transactions.TransactionType">
+            <summary>
+            Transaction type.
+            </summary>
+        </member>
+        <member name="F:Lykke.Service.BlockchainApi.Contract.Transactions.TransactionType.Send">
+            <summary>
+            Send transaction
+            </summary>
+        </member>
+        <member name="F:Lykke.Service.BlockchainApi.Contract.Transactions.TransactionType.Receive">
+            <summary>
+            Receive transaction
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.BlockchainApi.Contract.Wallets.WalletResponse">
+            <summary>
+            Wallet creation result.
+            Response for [POST] /api/wallets
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Wallets.WalletResponse.AddressContext">
+            <summary>
+            Any non security sensitive data associated with wallet. 
+            This context will be passed to the Blockchain.API [POST] /api/transactions/*.
+            </summary>
+            <remarks>
+            Can be empty.
+            </remarks>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Wallets.WalletResponse.PrivateKey">
+            <summary>
+            Private key, which will be used by Lykke platform to
+            sign transactions by the [POST] /api/sign
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.BlockchainApi.Contract.Wallets.WalletResponse.PublicAddress">
+            <summary>
+            Address which identifies the wallet in the blockchain
+            
+            For the blockchains with address mapping, this should
+            be virtual address
+            </summary>
+        </member>
+    </members>
+</doc>

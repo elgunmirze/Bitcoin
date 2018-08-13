@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bitcoin.Wallet.Api", "Bitcoin.Wallet.Api\Bitcoin.Wallet.Api.csproj", "{EAE19EDC-A233-42DB-87FC-57C018CBA444}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bitcoin.Wallet.Api.Tests", "Bitcoin.Wallet.Api.Tests\Bitcoin.Wallet.Api.Tests.csproj", "{478D0C15-F8F1-42D8-95F7-6823DC13078B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bitcoin.Wallet.Api.Client", "Bitcoin.Wallet.Api.Client\Bitcoin.Wallet.Api.Client.csproj", "{7CF107F6-0908-4C22-8FA7-881D7BA15FA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bitcoin.Wallet.Api.Tests", "Bitcoin.Wallet.Api.Tests\Bitcoin.Wallet.Api.Tests.csproj", "{BBFD7A17-C7D3-47CD-9694-1C44A7B63FFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,14 @@ Global
 		{EAE19EDC-A233-42DB-87FC-57C018CBA444}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAE19EDC-A233-42DB-87FC-57C018CBA444}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAE19EDC-A233-42DB-87FC-57C018CBA444}.Release|Any CPU.Build.0 = Release|Any CPU
-		{478D0C15-F8F1-42D8-95F7-6823DC13078B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{478D0C15-F8F1-42D8-95F7-6823DC13078B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{478D0C15-F8F1-42D8-95F7-6823DC13078B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{478D0C15-F8F1-42D8-95F7-6823DC13078B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CF107F6-0908-4C22-8FA7-881D7BA15FA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CF107F6-0908-4C22-8FA7-881D7BA15FA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CF107F6-0908-4C22-8FA7-881D7BA15FA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CF107F6-0908-4C22-8FA7-881D7BA15FA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBFD7A17-C7D3-47CD-9694-1C44A7B63FFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBFD7A17-C7D3-47CD-9694-1C44A7B63FFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBFD7A17-C7D3-47CD-9694-1C44A7B63FFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBFD7A17-C7D3-47CD-9694-1C44A7B63FFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

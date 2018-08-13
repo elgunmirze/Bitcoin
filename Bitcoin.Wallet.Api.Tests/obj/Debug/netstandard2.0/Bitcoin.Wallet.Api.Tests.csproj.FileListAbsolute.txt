@@ -1,9 +1,0 @@
-c:\users\elgun\Source\Repos\Bitcoin.Wallet.Api\Bitcoin.Wallet.Api.Tests\bin\Debug\netstandard2.0\Bitcoin.Wallet.Api.Tests.deps.json
-c:\users\elgun\Source\Repos\Bitcoin.Wallet.Api\Bitcoin.Wallet.Api.Tests\bin\Debug\netstandard2.0\Bitcoin.Wallet.Api.Tests.dll
-c:\users\elgun\Source\Repos\Bitcoin.Wallet.Api\Bitcoin.Wallet.Api.Tests\bin\Debug\netstandard2.0\Bitcoin.Wallet.Api.Tests.pdb
-c:\users\elgun\Source\Repos\Bitcoin.Wallet.Api\Bitcoin.Wallet.Api.Tests\obj\Debug\netstandard2.0\Bitcoin.Wallet.Api.Tests.csprojAssemblyReference.cache
-c:\users\elgun\Source\Repos\Bitcoin.Wallet.Api\Bitcoin.Wallet.Api.Tests\obj\Debug\netstandard2.0\Bitcoin.Wallet.Api.Tests.csproj.CoreCompileInputs.cache
-c:\users\elgun\Source\Repos\Bitcoin.Wallet.Api\Bitcoin.Wallet.Api.Tests\obj\Debug\netstandard2.0\Bitcoin.Wallet.Api.Tests.AssemblyInfoInputs.cache
-c:\users\elgun\Source\Repos\Bitcoin.Wallet.Api\Bitcoin.Wallet.Api.Tests\obj\Debug\netstandard2.0\Bitcoin.Wallet.Api.Tests.AssemblyInfo.cs
-c:\users\elgun\Source\Repos\Bitcoin.Wallet.Api\Bitcoin.Wallet.Api.Tests\obj\Debug\netstandard2.0\Bitcoin.Wallet.Api.Tests.dll
-c:\users\elgun\Source\Repos\Bitcoin.Wallet.Api\Bitcoin.Wallet.Api.Tests\obj\Debug\netstandard2.0\Bitcoin.Wallet.Api.Tests.pdb

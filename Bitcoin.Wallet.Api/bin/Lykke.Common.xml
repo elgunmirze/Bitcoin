@@ -1,0 +1,1175 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lykke.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Common.Application.Application">
+            <summary>
+            Manages application state.
+            </summary>
+        </member>
+        <member name="P:Common.Application.Application.ContainerBuilder">
+            <summary>
+            Autofac container builder.
+            </summary>
+        </member>
+        <member name="M:Common.Application.Application.Start">
+            <summary>
+            Build dependency container and call all IStartable.
+            </summary>
+            <returns>New scope.</returns>
+        </member>
+        <member name="M:Common.Application.Application.Run">
+            <summary>
+            Blocks thread until termincation thread is received.
+            </summary>
+        </member>
+        <member name="M:Common.Application.Application.OnShutdown">
+            <summary>
+            Termination event handler
+            </summary>
+        </member>
+        <member name="M:Common.Application.Application.Stop">
+            <summary>
+            Call all IStoppable.
+            </summary>
+        </member>
+        <member name="M:Common.Application.Application.Persist">
+            <summary>
+            Call all IPersitent.
+            </summary>
+        </member>
+        <member name="M:Common.Application.Application.Dispose">
+            <summary>
+            Call all IDisposable.
+            </summary>
+        </member>
+        <member name="T:Common.Application.AppState">
+            <summary>
+            State of Application. 
+            </summary>
+        </member>
+        <member name="T:Common.ApplicationInsightsTelemetry">
+            <summary>
+            Helper class for ApplicationInsights telemetry submission
+            </summary>
+        </member>
+        <member name="M:Common.ApplicationInsightsTelemetry.TrackMetric(System.String,System.Double)">
+            <summary>
+            Submits telemetry of Metric type with rpovided name and value.
+            </summary>
+            <param name="name">Metric name</param>
+            <param name="value">Metric value</param>
+        </member>
+        <member name="M:Common.ApplicationInsightsTelemetry.StartRequestOperation(System.String)">
+            <summary>
+            Initializes telemetry operation of RequestTelemetry type for future submission.
+            </summary>
+            <param name="name">Operation name</param>
+            <returns>Telemetry operation</returns>
+        </member>
+        <member name="M:Common.ApplicationInsightsTelemetry.StopOperation``1(Microsoft.ApplicationInsights.Extensibility.IOperationHolder{``0})">
+            <summary>
+            Submits telemetry operation that was created before.
+            </summary>
+            <param name="telemtryOperation">Telemetry operation</param>
+        </member>
+        <member name="M:Common.ApplicationInsightsTelemetry.MarkFailedOperation``1(Microsoft.ApplicationInsights.Extensibility.IOperationHolder{``0})">
+            <summary>
+            Marks telemetry operation as failed.
+            </summary>
+            <param name="telemtryOperation">Telemetry operation</param>
+        </member>
+        <member name="M:Common.ApplicationInsightsTelemetry.TrackException(System.Exception)">
+            <summary>
+            Submits exception telemetry.
+            </summary>
+            <param name="exception">Exception</param>
+        </member>
+        <member name="T:Common.Cache.CacheExtensions">
+            <summary>
+            Extensions
+            </summary>
+        </member>
+        <member name="M:Common.Cache.CacheExtensions.Get``1(Common.Cache.ICacheManager,System.String,System.Func{``0})">
+            <summary>
+            Get a cached item. If it's not in the cache yet, then load and cache it
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="cacheManager">Cache manager</param>
+            <param name="key">Cache key</param>
+            <param name="acquire">Function to load item if it's not in the cache yet</param>
+            <returns>Cached item</returns>
+        </member>
+        <member name="M:Common.Cache.CacheExtensions.Get``1(Common.Cache.ICacheManager,System.String,System.Int32,System.Func{``0})">
+            <summary>
+            Get a cached item. If it's not in the cache yet, then load and cache it
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="cacheManager">Cache manager</param>
+            <param name="key">Cache key</param>
+            <param name="cacheTime">Cache time in minutes (0 - do not cache)</param>
+            <param name="acquire">Function to load item if it's not in the cache yet</param>
+            <returns>Cached item</returns>
+        </member>
+        <member name="T:Common.Cache.ICacheManager">
+            <summary>
+            Cache manager interface
+            </summary>
+        </member>
+        <member name="M:Common.Cache.ICacheManager.Get``1(System.String)">
+            <summary>
+            Gets or sets the value associated with the specified key.
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="key">The key of the value to get.</param>
+            <returns>The value associated with the specified key.</returns>
+        </member>
+        <member name="M:Common.Cache.ICacheManager.Set(System.String,System.Object,System.Int32)">
+            <summary>
+            Adds the specified key and object to the cache.
+            </summary>
+            <param name="key">key</param>
+            <param name="data">Data</param>
+            <param name="cacheTime">Cache time</param>
+        </member>
+        <member name="M:Common.Cache.ICacheManager.IsSet(System.String)">
+            <summary>
+            Gets a value indicating whether the value associated with the specified key is cached
+            </summary>
+            <param name="key">key</param>
+            <returns>Result</returns>
+        </member>
+        <member name="M:Common.Cache.ICacheManager.Remove(System.String)">
+            <summary>
+            Removes the value with the specified key from the cache
+            </summary>
+            <param name="key">/key</param>
+        </member>
+        <member name="M:Common.Cache.ICacheManager.RemoveByPattern(System.String)">
+            <summary>
+            Removes items by pattern
+            </summary>
+            <param name="pattern">pattern</param>
+        </member>
+        <member name="M:Common.Cache.ICacheManager.Clear">
+            <summary>
+            Clear all cache data
+            </summary>
+        </member>
+        <member name="T:Common.Cache.MemoryCacheManager">
+            <summary>
+            Represents a manager for caching between HTTP requests
+            </summary>
+        </member>
+        <member name="P:Common.Cache.MemoryCacheManager.Cache">
+            <summary>
+            Cache object
+            </summary>
+        </member>
+        <member name="M:Common.Cache.MemoryCacheManager.Get``1(System.String)">
+            <summary>
+            Gets or sets the value associated with the specified key.
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="key">The key of the value to get.</param>
+            <returns>The value associated with the specified key.</returns>
+        </member>
+        <member name="M:Common.Cache.MemoryCacheManager.Set(System.String,System.Object,System.Int32)">
+            <summary>
+            Adds the specified key and object to the cache.
+            </summary>
+            <param name="key">key</param>
+            <param name="data">Data</param>
+            <param name="cacheTime">Cache time</param>
+        </member>
+        <member name="M:Common.Cache.MemoryCacheManager.IsSet(System.String)">
+            <summary>
+            Gets a value indicating whether the value associated with the specified key is cached
+            </summary>
+            <param name="key">key</param>
+            <returns>Result</returns>
+        </member>
+        <member name="M:Common.Cache.MemoryCacheManager.Remove(System.String)">
+            <summary>
+            Removes the value with the specified key from the cache
+            </summary>
+            <param name="key">/key</param>
+        </member>
+        <member name="M:Common.Cache.MemoryCacheManager.Clear">
+            <summary>
+            Clear all cache data
+            </summary>
+        </member>
+        <member name="M:Common.Cache.MemoryCacheManager.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="T:Common.CachedDataDictionaryUpdateStrategy">
+            <summary>
+            <see cref="T:Common.CachedDataDictionary`2"/> cache update strategies
+            </summary>
+        </member>
+        <member name="F:Common.CachedDataDictionaryUpdateStrategy.AllowConcurrentUpdates">
+            <summary>
+            If cache is expired or not had been initialized yet and <see cref="T:Common.CachedDataDictionary`2"/>
+            recieves multiple concurrent calls which wants to obtain cached data,
+            the getData delegate of the <see cref="T:Common.CachedDataDictionary`2"/> constructor can be called
+            multiple times concurrently.
+            </summary>
+        </member>
+        <member name="F:Common.CachedDataDictionaryUpdateStrategy.UseSynchronizedUpdates">
+            <summary>
+            If cache is expired or not had benn initialized yet and <see cref="T:Common.CachedDataDictionary`2"/>
+            recieves multiple concurrent calls which wants to obtain cached data,
+            the getData delegate of the <see cref="T:Common.CachedDataDictionary`2"/> constructor will be called
+            only once. Other calls will retrieve data from the cache.
+            </summary>
+        </member>
+        <member name="M:Common.DateTimeUtils.RoundToSecond(System.DateTime)">
+            <summary>
+            Truncates <see cref="T:System.DateTime"/> to the seconds
+            </summary>
+        </member>
+        <member name="M:Common.DateTimeUtils.RoundToSecond(System.DateTime,System.Int32)">
+            <summary>
+            Truncates <see cref="T:System.DateTime"/> to the <paramref name="sec"/> seconds
+            </summary>
+            <param name="dateTime"><see cref="T:System.DateTime"/> to truncate</param>
+            <param name="sec">5 - truncates to 5 seconds</param>
+        </member>
+        <member name="M:Common.DateTimeUtils.RoundToMinute(System.DateTime)">
+            <summary>
+            Truncates <see cref="T:System.DateTime"/> to the minutes
+            </summary>
+            <param name="dateTime"><see cref="T:System.DateTime"/> to truncate</param>
+        </member>
+        <member name="M:Common.DateTimeUtils.RoundToMinute(System.DateTime,System.Int32)">
+            <summary>
+            Truncates <see cref="T:System.DateTime"/> to the <paramref name="min"/> minutes
+            </summary>
+            <param name="dateTime"><see cref="T:System.DateTime"/> to truncate</param>
+            <param name="min">5 - truncates to 5 minutes</param>
+        </member>
+        <member name="M:Common.DateTimeUtils.RoundToHour(System.DateTime)">
+            <summary>
+            Truncates <see cref="T:System.DateTime"/> to the hours
+            </summary>
+            <param name="dateTime"><see cref="T:System.DateTime"/> to truncate</param>
+        </member>
+        <member name="M:Common.DateTimeUtils.RoundToHour(System.DateTime,System.Int32)">
+            <summary>
+            Truncates <see cref="T:System.DateTime"/> to the <paramref name="hour"/> hours
+            </summary>
+            <param name="dateTime"><see cref="T:System.DateTime"/> to truncate</param>
+            <param name="hour">5 - truncates to 5 hours</param>
+        </member>
+        <member name="M:Common.DateTimeUtils.RoundToWeek(System.DateTime)">
+            <summary>
+            Decreases date precision down to week. Shifts date to monday
+            </summary>
+        </member>
+        <member name="M:Common.DateTimeUtils.RoundToMonth(System.DateTime)">
+            <summary>
+             Уменьшаем точность до часа - отбрасывая минуты
+            </summary>
+            <param name="dateTime">Исходное дата-время</param>
+            <returns>Округленная дата-время</returns>
+        </member>
+        <member name="M:Common.DateTimeUtils.RoundToYear(System.DateTime)">
+            <summary>
+             Уменьшаем точность до года - отбрасывая все остальное
+            </summary>
+            <param name="dateTime">Исходное дата-время</param>
+            <returns>Округленная дата-время</returns>
+        </member>
+        <member name="M:Common.DateTimeUtils.GenerateDates(System.DateTime,System.DateTime)">
+            <summary>
+            Сгенерировать даты (без времени)
+            </summary>
+            <param name="dateFrom">дата с которой начать</param>
+            <param name="dateTo">дата которой закончить (включительно)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.DateTimeUtils.GenerateMonthDates(System.Int32,System.Int32)">
+            <summary>
+            Сгенерировать даты за определенный месяц
+            </summary>
+        </member>
+        <member name="M:Common.DateTimeUtils.GetFirstWeekOfYear(System.Int32,System.DateTimeKind)">
+            <summary>
+            Returns date of the first week's monday in the specified year.
+            </summary>
+        </member>
+        <member name="M:Common.DateTimeUtils.GetFirstWeekOfYear(System.DateTime)">
+            <summary>
+            Returns date of the first weeks' monday in that year.
+            </summary>
+        </member>
+        <member name="T:Common.Log.AggregateLogger">
+            <summary>
+            Sends log messages to all specified loggers.
+            </summary>
+        </member>
+        <member name="M:Common.Log.ILog.WriteInfoAsync(System.String,System.String,System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Writes info log message
+            </summary>
+            <remarks>
+            Write an info message about whatever you need to to simplify debugging and maintenance
+            </remarks>
+        </member>
+        <member name="M:Common.Log.ILog.WriteMonitorAsync(System.String,System.String,System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Writes monitoring log message
+            </summary>
+            <remarks>
+            Write a monitoring message about app lifecycle events or health events (start, stop, etc.)
+            </remarks>
+        </member>
+        <member name="M:Common.Log.ILog.WriteWarningAsync(System.String,System.String,System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Writes warning message
+            </summary>
+            <remarks>
+            Write a warning when something went wrong without any exceptions, and app can still run normally
+            </remarks>
+        </member>
+        <member name="M:Common.Log.ILog.WriteWarningAsync(System.String,System.String,System.String,System.String,System.Exception,System.Nullable{System.DateTime})">
+            <summary>
+            Writes warning message with exception
+            </summary>
+            <remarks>
+            Write a warning with exception when you catch an exception but it is not the error for you, and app can still run normally
+            </remarks>
+        </member>
+        <member name="M:Common.Log.ILog.WriteErrorAsync(System.String,System.String,System.String,System.Exception,System.Nullable{System.DateTime})">
+            <summary>
+            Writes error message
+            </summary>
+            <remarks>
+            Write a error when exception was thrown, but app can still run
+            </remarks>
+        </member>
+        <member name="M:Common.Log.ILog.WriteFatalErrorAsync(System.String,System.String,System.String,System.Exception,System.Nullable{System.DateTime})">
+            <summary>
+            Writes fatal error message
+            </summary>
+            <remarks>
+            Write a fatal error when exception was thrown and app can't still run anymore
+            </remarks>
+        </member>
+        <member name="M:Common.Log.ILog.WriteInfoAsync(System.String,System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Writes info log message
+            </summary>
+            <remarks>
+            Write an info message about whatever you need to to simplify debugging and maintenance
+            </remarks>
+        </member>
+        <member name="M:Common.Log.ILog.WriteMonitorAsync(System.String,System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Writes monitoring log message
+            </summary>
+            <remarks>
+            Write a monitoring message about app lifecycle events or health events (start, stop, etc.)
+            </remarks>
+        </member>
+        <member name="M:Common.Log.ILog.WriteWarningAsync(System.String,System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Writes warning message
+            </summary>
+            <remarks>
+            Write a warning when something went wrong without any exceptions, and app can still run normally
+            </remarks>
+        </member>
+        <member name="M:Common.Log.ILog.WriteWarningAsync(System.String,System.String,System.String,System.Exception,System.Nullable{System.DateTime})">
+            <summary>
+            Writes warning message with exception
+            </summary>
+            <remarks>
+            Write a warning with exception when you catch an exception but it is not the error for you, and app can still run normally
+            </remarks>
+        </member>
+        <member name="M:Common.Log.ILog.WriteErrorAsync(System.String,System.String,System.Exception,System.Nullable{System.DateTime})">
+            <summary>
+            Writes error message
+            </summary>
+            <remarks>
+            Write a error when exception was thrown, but app can still run
+            </remarks>
+        </member>
+        <member name="M:Common.Log.ILog.WriteFatalErrorAsync(System.String,System.String,System.Exception,System.Nullable{System.DateTime})">
+            <summary>
+            Writes fatal error message
+            </summary>
+            <remarks>
+            Write a fatal error when exception was thrown and app can't still run anymore
+            </remarks>
+        </member>
+        <member name="T:Common.Log.LogAggregate">
+            <summary>
+            Builder for <see cref="T:Common.Log.AggregateLogger"/>.
+            </summary>
+        </member>
+        <member name="M:Common.Log.LogAggregate.AddLogger(Common.Log.ILog)">
+            <summary>
+            Add a logger.
+            </summary>
+            <param name="log"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.Log.LogAggregate.CreateLogger">
+            <summary>
+            Create ILog based on all added loggers.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Common.Log.LogExtensions.CreateComponentScope(Common.Log.ILog,System.String)">
+            <summary>
+            Creates component scoped log
+            </summary>
+            <remarks>
+            You can use it when you need to specify the same component for group of log writes.
+            If you specify component in the particular log write, it will be concatenated with <paramref name="component"/>
+            </remarks>
+            <param name="log">Log to wrap</param>
+            <param name="component">Component name for which scope will be created</param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.Log.LogExtensions.WriteInfo(Common.Log.ILog,System.String,System.Object,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Writes info log message
+            </summary>
+            <remarks>
+            Write an info message about whatever you need to to simplify debugging and maintenance.
+            If <paramref name="context"/> is string, it will be passed as is, otherwise it will be converted to the Json
+            </remarks>
+        </member>
+        <member name="M:Common.Log.LogExtensions.WriteMonitor(Common.Log.ILog,System.String,System.Object,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Writes monitoring log message
+            </summary>
+            <remarks>
+            Write a monitoring message about app lifecycle events or health events (start, stop, etc.).
+            If <paramref name="context"/> is string, it will be passed as is, otherwise it will be converted to the Json
+            </remarks>
+        </member>
+        <member name="M:Common.Log.LogExtensions.WriteWarning(Common.Log.ILog,System.String,System.Object,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Writes warning message
+            </summary>
+            <remarks>
+            Write a warning when something went wrong without any exceptions, and app can still run normally.
+            If <paramref name="context"/> is string, it will be passed as is, otherwise it will be converted to the Json
+            </remarks>
+        </member>
+        <member name="M:Common.Log.LogExtensions.WriteWarning(Common.Log.ILog,System.String,System.Object,System.String,System.Exception,System.Nullable{System.DateTime})">
+            <summary>
+            Writes warning message with exception
+            </summary>
+            <remarks>
+            Write a warning with exception when you catch an exception but it is not the error for you, and app can still run normally.
+            If <paramref name="context"/> is string, it will be passed as is, otherwise it will be converted to the Json
+            </remarks>
+        </member>
+        <member name="M:Common.Log.LogExtensions.WriteError(Common.Log.ILog,System.String,System.Object,System.Exception,System.Nullable{System.DateTime})">
+            <summary>
+            Writes error message
+            </summary>
+            <remarks>
+            Write a error when exception was thrown, but app can still run.
+            If <paramref name="context"/> is string, it will be passed as is, otherwise it will be converted to the Json
+            </remarks>
+        </member>
+        <member name="M:Common.Log.LogExtensions.WriteFatalError(Common.Log.ILog,System.String,System.Object,System.Exception,System.Nullable{System.DateTime})">
+            <summary>
+            Writes fatal error message
+            </summary>
+            <remarks>
+            Write a fatal error when exception was thrown and app can't still run anymore.
+            If <paramref name="context"/> is string, it will be passed as is, otherwise it will be converted to the Json
+            </remarks>
+        </member>
+        <member name="T:Common.QueueWithConfirmation`1">
+            <summary>
+            Threadsafe queue with confirmation of success of handling message
+            </summary>
+            <typeparam name="T">Message type</typeparam>
+        </member>
+        <member name="P:Common.RemoteUi.RemoteUiTreeNode.Id">
+            <summary>
+            Id ноды
+            </summary>
+        </member>
+        <member name="P:Common.RemoteUi.RemoteUiTreeNode.Name">
+            <summary>
+            Имя ноды
+            </summary>
+        </member>
+        <member name="P:Common.RemoteUi.RemoteUiTreeNode.Icon">
+            <summary>
+            Иконка
+            </summary>
+        </member>
+        <member name="T:Common.RemoteUi.GuiTableProfile">
+            <summary>
+            Вспомогательный класс, который решает проблемы с индикацией разрезов данных по ключу
+            </summary>
+        </member>
+        <member name="M:Common.RemoteUi.GuiTableProfile.#ctor(System.Int32,System.String[])">
+            <summary>
+            Нулевой элемент - ключ
+            </summary>
+            <param name="maxLines">Максимальное количество записей</param>
+            <param name="headers">заголовок</param>
+        </member>
+        <member name="M:Common.RemoteUi.GuiTableProfile.NewData(System.String[])">
+            <summary>
+            0 элемент - это ключ;
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:Common.RemoteUi.GuiTableLastData.#ctor(System.Int32,System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="maxCount">Максимальное число записей </param>
+            <param name="headers"></param>
+        </member>
+        <member name="M:Common.StreamExtentions.ReadPascalString(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            Считать строку из сокета в Pascal формате. Первый байт - длина строки, остальное строка
+            </summary>
+            <param name="stream">Поток, из которого читаем строку</param>
+            <param name="encoding">Формат кодирования. По умолчанию: UTF-8</param>
+            <returns>Считанная строка</returns>
+        </member>
+        <member name="M:Common.StreamExtentions.ReadString(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            Считать строку из потока в формате: 4 байта - длина строки и сама строка
+            </summary>
+            <param name="stream">Поток, из которого читается строка</param>
+            <param name="encoding">Формат кодирования. По умолчанию: UTF-8</param>
+            <returns>Полученная строка</returns>
+        </member>
+        <member name="M:Common.StringUtils.CalculateHash64(System.String)">
+            <summary>
+            Calculates string 64 bit hash
+            </summary>
+        </member>
+        <member name="M:Common.StringUtils.CalculateHash32(System.String)">
+            <summary>
+            Calculates string 32 bit hash
+            </summary>
+        </member>
+        <member name="M:Common.StringUtils.CalculateHexHash64(System.String,System.Int32)">
+            <summary>
+            Calculates string hash as hex string of the given <paramref name="length"/> up to 16 digits
+            Default <paramref name="length"/> is 16
+            </summary>
+        </member>
+        <member name="M:Common.StringUtils.CalculateHexHash32(System.String,System.Int32)">
+            <summary>
+            Calculates string hash as hex string of the given <paramref name="length"/> up to 8 digits.
+            Default <paramref name="length"/> is 8
+            </summary>
+        </member>
+        <member name="M:Common.StringUtils.IsValidEmail(System.String)">
+            <summary>
+            Проверить на валидность строки Email
+            </summary>
+            <param name="email">строка, содержащая Email</param>
+            <returns>true - да в строке валидный Email</returns>
+        </member>
+        <member name="M:Common.StringUtils.IsGuid(System.String)">
+            <summary>
+            проверить на то что строка в фрмате GUID
+            </summary>
+            <param name="src">исходная строка</param>
+            <returns>Строка соответствует формату GUID</returns>
+        </member>
+        <member name="M:Common.StringUtils.SubstringBetween(System.String,System.Char,System.Char,System.Int32)">
+            <summary>
+            Get Substring between chars
+            </summary>
+            <param name="src">source string</param>
+            <param name="from">from char</param>
+            <param name="to">to chat</param>
+            <param name="skipFrames"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.StringUtils.SubstringFromChar(System.String,System.Char,System.Int32)">
+            <summary>
+            Get substring right after the char from
+            </summary>
+            <param name="src">source string</param>
+            <param name="from">from char</param>
+            <param name="skipCount">how many to skip chars first</param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.StringUtils.IsPasswordComplex(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Checks password for compexity (must contains digits, upper and lower case chars and special chars)
+            </summary>
+            <param name="password">password to check</param>
+            <param name="minLength">min password length</param>
+            <param name="useSpecialChars">check for special chars or not</param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.StringUtils.OvewriteInMemory(System.String,System.Char)">
+            <summary>
+            Overwrites characters of a string in memory with specified one. This is unsafe operation!
+            </summary>
+        </member>
+        <member name="T:Common.TasksManager`1">
+            <summary>
+            Helps working with a collection of tasks and perform group operations with them.
+            </summary>
+            <typeparam name="TResult">A result type</typeparam>
+        </member>
+        <member name="M:Common.TasksManager`1.Add(System.Object,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new task and add it into the internal collection
+            </summary>
+            <param name="key">A key</param>
+            <param name="cancellationToken">An optional cancellation token. Can be used to set the task into the canceled state</param>
+            <returns>The created task</returns>
+        </member>
+        <member name="M:Common.TasksManager`1.SetResult(System.Object,`0)">
+            <summary>
+            Attempts to transition the  task into the <see cref="F:System.Threading.Tasks.TaskStatus.RanToCompletion"></see> state.
+            </summary>
+            <param name="key">The task key</param>
+            <param name="result">The <paramref name="result"/> to set into the task</param>
+        </member>
+        <member name="M:Common.TasksManager`1.Cancel(System.Object,System.Threading.CancellationToken)">
+            <summary>
+            Attempts to transition the task into the <see cref="F:System.Threading.Tasks.TaskStatus.Canceled"></see> state.
+            </summary>
+            <param name="key">A key of the task</param>
+            <param name="cancellationToken">Optional cancellation token</param>
+        </member>
+        <member name="M:Common.TasksManager`1.CancelAll(System.Threading.CancellationToken)">
+            <summary>
+            Attempts to transition all tasks into the <see cref="F:System.Threading.Tasks.TaskStatus.Canceled"></see> state.
+            </summary>
+            <param name="cancellationToken">An optional cancellation token</param>
+        </member>
+        <member name="M:Common.TasksManager`1.SetExceptionsToAll(System.Exception)">
+            <summary>
+            Attempts to transition all tasks into the <see cref="F:System.Threading.Tasks.TaskStatus.Faulted"></see> state.
+            </summary>
+            <param name="exception">An <paramref name="exception"/> to set in to task</param>
+        </member>
+        <member name="T:Common.TimerPeriod">
+            <summary>
+            Timer that runs Execute method in a loop with a fixed time interval between runs (Execute method execution time is not included).
+            </summary>
+        </member>
+        <member name="M:Common.Utils.GetNextDateByDayOfTheWeek(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Взять следующую дату, указав день недели. Сегодняшняя дата считается
+            </summary>
+            <param name="nowDateTime">текущая дата</param>
+            <param name="dayOfWeek">день недели</param>
+            <returns>Дата дня недели</returns>
+        </member>
+        <member name="M:Common.Utils.AreSame(System.Collections.Generic.List{System.Byte},System.Byte[],System.Int32)">
+            <summary>
+            Проверить то, что последовательность левая начиная от indexOf равна последовательности search
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Common.Utils.GetFixedAsString(System.Double,System.Int32)">
+            <summary>
+            Formating float as string with fixed accuracy and '.' as separate
+            </summary>
+            <param name="value">float value</param>
+            <param name="accuracy">accuracy for value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.Utils.GetFixedAsString(System.Decimal,System.Int32)">
+            <summary>
+            Formating float as string with fixed accuracy and '.' as separate
+            </summary>
+            <param name="value">float value</param>
+            <param name="accuracy">accuracy for value</param>
+            <returns></returns>
+        </member>
+        <member name="T:Lykke.Common.Api.Contract.Responses.ErrorResponse">
+            <summary>
+            General API error response
+            </summary>
+        </member>
+        <member name="P:Lykke.Common.Api.Contract.Responses.ErrorResponse.ErrorMessage">
+            <summary>
+            Summary error message
+            </summary>
+        </member>
+        <member name="P:Lykke.Common.Api.Contract.Responses.ErrorResponse.ModelErrors">
+            <summary>
+            Model errors. Key is the model field name, value is the list of the errors related to the given model field.
+            </summary>
+        </member>
+        <member name="M:Lykke.Common.Api.Contract.Responses.ErrorResponse.Create(System.String)">
+            <summary>
+            Creates <see cref="T:Lykke.Common.Api.Contract.Responses.ErrorResponse"/> with summary error message
+            </summary>
+            <param name="message">Summary error message</param>
+        </member>
+        <member name="M:Lykke.Common.Api.Contract.Responses.ErrorResponse.AddModelError(System.String,System.String)">
+            <summary>
+            Adds model error to the current <see cref="T:Lykke.Common.Api.Contract.Responses.ErrorResponse"/> instance
+            </summary>
+            <param name="key">Model field name</param>
+            <param name="message">Error related to the given model field</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lykke.Common.Api.Contract.Responses.ErrorResponse.AddModelError(System.String,System.Exception)">
+            <summary>
+            Adds model error to the current <see cref="T:Lykke.Common.Api.Contract.Responses.ErrorResponse"/> instance
+            </summary>
+            <param name="key">Model field name</param>
+            <param name="exception">Exception which corresponds to the error related to the given model field</param>
+        </member>
+        <member name="T:Lykke.Common.Api.Contract.Responses.IsAliveResponse">
+            <summary>
+            General API IsAlive response.
+            See https://lykkex.atlassian.net/wiki/spaces/LKEWALLET/pages/35755585/Add+your+app+to+Monitoring
+            </summary>
+        </member>
+        <member name="P:Lykke.Common.Api.Contract.Responses.IsAliveResponse.Name">
+            <summary>
+            App name
+            </summary>
+        </member>
+        <member name="P:Lykke.Common.Api.Contract.Responses.IsAliveResponse.Version">
+            <summary>
+            App version
+            </summary>
+        </member>
+        <member name="P:Lykke.Common.Api.Contract.Responses.IsAliveResponse.Env">
+            <summary>
+            ENV_INFO environment variable value
+            </summary>
+        </member>
+        <member name="P:Lykke.Common.Api.Contract.Responses.IsAliveResponse.IsDebug">
+            <summary>
+            Flag which indicates, is app build DEBUG or RELEASE
+            </summary>
+        </member>
+        <member name="P:Lykke.Common.Api.Contract.Responses.IsAliveResponse.IssueIndicators">
+            <summary>
+            App issue indicators
+            </summary>
+        </member>
+        <member name="T:Lykke.Common.Api.Contract.Responses.IsAliveResponse.IssueIndicator">
+            <summary>
+            App issue indicator
+            </summary>
+        </member>
+        <member name="P:Lykke.Common.Api.Contract.Responses.IsAliveResponse.IssueIndicator.Type">
+            <summary>
+            Indicator type
+            </summary>
+        </member>
+        <member name="P:Lykke.Common.Api.Contract.Responses.IsAliveResponse.IssueIndicator.Value">
+            <summary>
+            Indicator value
+            </summary>
+        </member>
+        <member name="T:Lykke.Common.Api.Filters.ExceptionFilter">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Common.Api.Filters.ExceptionFilter.#ctor(System.ValueTuple{System.Type,System.Int32}[])">
+            <summary>
+            Creates a filter, that allows to respond with specific status code in vase of exception.
+            </summary>
+        </member>
+        <member name="M:Lykke.Common.Api.Handlers.HttpErrorLoggingHandler.AddSensitivePattern(System.String,System.String)">
+            <summary>
+               Adds sensitive pattern that should not be logged. Api keys, private keys and so on, for example.
+            </summary>
+            <param name="pattern">
+               Regex that should be replaced.
+            </param>
+            <param name="replacement">
+               Pattern replacement.
+            </param>
+        </member>
+        <member name="T:Lykke.Common.Async.AsyncLazy`1">
+            <summary>
+            Class responsible for lazy async initialization
+            ALWAYS await on Value please(Or at least use it like Value.Result)
+            Source information: https://blogs.msdn.microsoft.com/pfxteam/2011/01/15/asynclazyt/
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Lykke.Common.Cache.OnDemandDataCache`1">
+            <summary>
+               Cache using implementation of <see cref="T:Microsoft.Extensions.Caching.Memory.IMemoryCache" /> to store its entries.
+               In contrast to IMemoryCache and ConcurrentDictionary this cache implementation prevents multiple calls of data entry factory.
+            </summary>
+        </member>
+        <member name="M:Lykke.Common.Cache.OnDemandDataCache`1.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Common.Cache.OnDemandDataCache`1.#ctor(Microsoft.Extensions.Options.IOptions{Microsoft.Extensions.Caching.Memory.MemoryCacheOptions})">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Common.Cache.OnDemandDataCache`1.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+            <summary>
+               Creates a new OnDemandDataCache instance.
+            </summary>
+            <param name="memoryCache">
+               Underlying memory cache.
+            </param>
+        </member>
+        <member name="M:Lykke.Common.Cache.OnDemandDataCache`1.Get(System.String)">
+            <summary>
+               Gets the item associated with specified key if present.
+            </summary>
+            <param name="key">
+               A string identifying the requested entry.
+            </param>
+            <returns>
+               Cached item, null otherwise.
+            </returns>
+        </member>
+        <member name="M:Lykke.Common.Cache.OnDemandDataCache`1.GetOrAdd(System.String,System.Func{System.String,`0})">
+            <summary>
+               Gets the item associated with specified key if present, creates it otherwise.
+            </summary>
+            <param name="key">
+               A string identifying the requested entry.
+            </param>
+            <param name="factory">
+               New item factory
+            </param>
+            <returns>
+               Cached item, or created one.
+            </returns>
+        </member>
+        <member name="M:Lykke.Common.Cache.OnDemandDataCache`1.GetOrAdd(System.String,System.Func{System.String,`0},System.DateTimeOffset)">
+            <summary>
+               Gets the item associated with specified key if present, creates it otherwise.
+            </summary>
+            <param name="key">
+               A string identifying the requested entry.
+            </param>
+            <param name="factory">
+               New item factory
+            </param>
+            <param name="absoluteExpiration">
+               Absolute expiration date for the cache entry.
+            </param>
+            <returns>
+               Cached item, or created one.
+            </returns>
+        </member>
+        <member name="M:Lykke.Common.Cache.OnDemandDataCache`1.GetOrAdd(System.String,System.Func{System.String,`0},System.TimeSpan)">
+            <summary>
+               Gets the item associated with specified key if present, creates it otherwise.
+            </summary>
+            <param name="key">
+               A string identifying the requested entry.
+            </param>
+            <param name="factory">
+               New item factory
+            </param>
+            <param name="absoluteExpirationRelativeToNow">
+               Absolute expiration time, relative to now.
+            </param>
+            <returns>
+               Cached item, or created one.
+            </returns>
+        </member>
+        <member name="M:Lykke.Common.Cache.OnDemandDataCache`1.GetOrAdd(System.String,System.Func{System.String,`0},Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions)">
+            <summary>
+               Gets the item associated with specified key if present, creates it otherwise.
+            </summary>
+            <param name="key">
+               A string identifying the requested entry.
+            </param>
+            <param name="factory">
+               New item factory
+            </param>
+            <param name="options">
+               Options for new entry.
+            </param>
+            <returns>
+               Cached item, or created one.
+            </returns>
+        </member>
+        <member name="M:Lykke.Common.Cache.OnDemandDataCache`1.GetOrAddAsync(System.String,System.Func{System.String,System.Threading.Tasks.Task{`0}})">
+            <summary>
+               Gets the item associated with specified key if present, creates it otherwise.
+            </summary>
+            <param name="key">
+               A string identifying the requested entry.
+            </param>
+            <param name="factory">
+               New item factory
+            </param>
+            <returns>
+               Cached item, or created one.
+            </returns>
+        </member>
+        <member name="M:Lykke.Common.Cache.OnDemandDataCache`1.GetOrAddAsync(System.String,System.Func{System.String,System.Threading.Tasks.Task{`0}},System.DateTimeOffset)">
+            <summary>
+               Gets the item associated with specified key if present, creates it otherwise.
+            </summary>
+            <param name="key">
+               A string identifying the requested entry.
+            </param>
+            <param name="factory">
+               New item factory
+            </param>
+            <param name="absoluteExpiration">
+               Absolute expiration date for the cache entry.
+            </param>
+            <returns>
+               Cached item, or created one.
+            </returns>
+        </member>
+        <member name="M:Lykke.Common.Cache.OnDemandDataCache`1.GetOrAddAsync(System.String,System.Func{System.String,System.Threading.Tasks.Task{`0}},System.TimeSpan)">
+            <summary>
+               Gets the item associated with specified key if present, creates it otherwise.
+            </summary>
+            <param name="key">
+               A string identifying the requested entry.
+            </param>
+            <param name="factory">
+               New item factory
+            </param>
+            <param name="absoluteExpirationRelativeToNow">
+               Absolute expiration time, relative to now.
+            </param>
+            <returns>
+               Cached item, or created one.
+            </returns>
+        </member>
+        <member name="M:Lykke.Common.Cache.OnDemandDataCache`1.GetOrAddAsync(System.String,System.Func{System.String,System.Threading.Tasks.Task{`0}},Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions)">
+            <summary>
+               Gets the item associated with specified key if present, creates it otherwise.
+            </summary>
+            <param name="key">
+               A string identifying the requested entry.
+            </param>
+            <param name="factory">
+               New item factory
+            </param>
+            <param name="options">
+               Options for new entry.
+            </param>
+            <returns>
+               Cached item, or created one.
+            </returns>
+        </member>
+        <member name="M:Lykke.Common.Cache.OnDemandDataCache`1.Remove(System.String)">
+            <summary>
+               Removes the item, associated with the given key.
+            </summary>
+            <param name="key">
+               A string identifying the entry.
+            </param>
+        </member>
+        <member name="M:Lykke.Common.Cache.OnDemandDataCache`1.Set(System.String,`0)">
+            <summary>
+               Sets the item associated with specified key.
+            </summary>
+            <param name="key">
+               A string identifying the requested entry.
+            </param>
+            <param name="value">
+               Entry value
+            </param>
+        </member>
+        <member name="M:Lykke.Common.Cache.OnDemandDataCache`1.Set(System.String,`0,System.DateTimeOffset)">
+            <summary>
+               Sets the item associated with specified key.
+            </summary>
+            <param name="key">
+               A string identifying the requested entry.
+            </param>
+            <param name="value">
+               Entry value
+            </param>
+            <param name="absoluteExpiration">
+               Absolute expiration date for the cache entry.
+            </param>
+        </member>
+        <member name="M:Lykke.Common.Cache.OnDemandDataCache`1.Set(System.String,`0,System.TimeSpan)">
+            <summary>
+               Sets the item associated with specified key.
+            </summary>
+            <param name="key">
+               A string identifying the requested entry.
+            </param>
+            <param name="value">
+               Entry value
+            </param>
+            <param name="absoluteExpirationRelativeToNow">
+               Absolute expiration time, relative to now.
+            </param>
+        </member>
+        <member name="M:Lykke.Common.Cache.OnDemandDataCache`1.Set(System.String,`0,Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions)">
+            <summary>
+               Sets the item associated with specified key.
+            </summary>
+            <param name="key">
+               A string identifying the requested entry.
+            </param>
+            <param name="value">
+               Entry value
+            </param>
+            <param name="options">
+               Options for new entry.
+            </param>
+        </member>
+        <member name="M:Lykke.Common.Cache.OnDemandDataCache`1.TryGet(System.String,`0@)">
+            <summary>
+               Gets the item associated with this key if present.
+            </summary>
+            <param name="key">
+               A string identifying the requested entry.
+            </param>
+            <param name="value">
+               The located value or null.
+            </param>
+            <returns>
+               True if the key was found.
+            </returns>
+        </member>
+        <member name="T:Lykke.Common.Chaos.ChaosException">
+            <summary>
+            Exception that is thrown, when <see cref="T:Lykke.Common.Chaos.IChaosKitty"/> is meowing
+            </summary>
+        </member>
+        <member name="M:Lykke.Common.Chaos.ChaosException.#ctor(System.String)">
+            <summary>
+            Exception that is thrown, when <see cref="T:Lykke.Common.Chaos.IChaosKitty"/> is meowing
+            </summary>
+        </member>
+        <member name="T:Lykke.Common.Chaos.ChaosKitty">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Common.Chaos.ChaosKitty.Meow(System.Object,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="T:Lykke.Common.Chaos.ChaosSettings">
+            <summary>
+            Settings for the <see cref="T:Lykke.Common.Chaos.IChaosKitty"/>. You can use it right in your app settings
+            and your can mark the property, that is store <see cref="T:Lykke.Common.Chaos.ChaosSettings"/> as [Optional],
+            to make it disablable. 
+            </summary>
+        </member>
+        <member name="T:Lykke.Common.Chaos.ContainerBuilderExtensions">
+            <summary>
+            Autofac <see cref="T:Autofac.ContainerBuilder"/> extensions for the <see cref="T:Lykke.Common.Chaos.ChaosKitty"/>
+            </summary>
+        </member>
+        <member name="M:Lykke.Common.Chaos.ContainerBuilderExtensions.RegisterChaosKitty(Autofac.ContainerBuilder,Lykke.Common.Chaos.ChaosSettings)">
+            <summary>
+            Registers <see cref="T:Lykke.Common.Chaos.ChaosKitty"/> singleton as <see cref="T:Lykke.Common.Chaos.IChaosKitty"/>
+            </summary>
+            <param name="builder">The DI container builder</param>
+            <param name="settings">Chaos settings. pass null to disable chaos</param>
+        </member>
+        <member name="T:Lykke.Common.Chaos.IChaosKitty">
+            <summary>
+            <p>
+            Chaos kitty abstraction. It's inteded to verify your application
+            reliability and methods idempotency on the dev and test environments, 
+            by periodicaly generating random exceptions. 
+            </p>
+            <p>
+            Most suitable cases for the chaos kitty are message handlers, that executes
+            with retries. Chaos kitty is good tool to test idempotency of these handlers.
+            But it's also can be used in the HTTP API actions or even business services 
+            and repositories. Call <see cref="M:Lykke.Common.Chaos.IChaosKitty.Meow(System.Object,System.Int32)"/> after every state changing method 
+            call to emulate infrastructure failure. Consistency of overall state of your 
+            application should be eventually achivable even after such exceptions. If your 
+            application recovers after the chaos kitty meowing, then it will be able to 
+            recover after any transient infrastructure failures in production.
+            </p>
+            </summary>
+        </member>
+        <member name="M:Lykke.Common.Chaos.IChaosKitty.Meow(System.Object,System.Int32)">
+            <summary>
+            Let the kitty think to do meow or not this time.
+            </summary>
+            <param name="tag">
+                An object that will be converted to the string by the <see cref="M:System.Object.ToString"/> call and will be 
+                passed to the message of the generated exception, if kitty is meowed. Passing ID of the executed
+                process, or another context, will be good idea, to reconstruct the state of the application by the logs,
+                when the "meow" is lead to the inconsistent state of the app and you searching how to fix this issue.
+            </param>
+            <param name="lineNumber">
+            Line number, where <see cref="M:Lykke.Common.Chaos.IChaosKitty.Meow(System.Object,System.Int32)"/> was called. Will be substituted automatically
+            </param>
+            <exception cref="T:Lykke.Common.Chaos.ChaosException">
+            If the kitty is meowed, then this exception will be thrown
+            </exception>
+        </member>
+        <member name="T:Lykke.Common.Chaos.SilentChaosKitty">
+            <summary>
+            Chaos kitty, that never meows
+            </summary>
+        </member>
+        <member name="M:Lykke.Common.Chaos.SilentChaosKitty.Meow(System.Object,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Lykke.Common.EncryptionTools.Aes256Helper.Decrypt(System.String,System.Byte[])">
+            <summary>
+               Decrypts base64 string with AES256 (key 32 bytes)
+            </summary>
+        </member>
+        <member name="M:Lykke.Common.EncryptionTools.Aes256Helper.Encrypt(System.String,System.Byte[])">
+            <summary>
+               Encrypts base64 data with AES256 (key 32 bytes)
+            </summary>
+        </member>
+        <member name="T:Lykke.Common.ResourcesMonitorExtensions">
+            <summary>Autofac <see cref="T:Autofac.ContainerBuilder"/> extensions for the <see cref="T:Lykke.Common.ResourcesMonitor"/></summary>
+        </member>
+        <member name="M:Lykke.Common.ResourcesMonitorExtensions.RegisterResourcesMonitoring(Autofac.ContainerBuilder,Common.Log.ILog)">
+            <summary>
+            Registers <see cref="T:Lykke.Common.ResourcesMonitor"/> singleton with ApplicationInsights telemetry submission only"/>
+            </summary>
+            <param name="builder">The DI container builder</param>
+            <param name="log">ILog logger</param>
+        </member>
+        <member name="M:Lykke.Common.ResourcesMonitorExtensions.RegisterResourcesMonitoringWithLogging(Autofac.ContainerBuilder,Common.Log.ILog,System.Nullable{System.Double},System.Nullable{System.Int32})">
+            <summary>
+            Registers <see cref="T:Lykke.Common.ResourcesMonitor"/> singleton that beside ApplicationInsights telemetry submission also logs threshold crossing events on monitor level"/>
+            </summary>
+            <param name="builder">The DI container builder</param>
+            <param name="log">ILog logger</param>
+            <param name="cpuThreshold">Optional CPU threshold for monitor logging</param>
+            <param name="ramMbThreshold">Optional RAM threshold for monitor logging</param>
+        </member>
+        <member name="T:Lykke.Common.ResourcesMonitor">
+            <summary>
+            CPU and RAM monitoring background checker based on TimerPeriod with once per minute frequency
+            </summary>
+        </member>
+        <member name="M:Lykke.Common.ResourcesMonitor.#ctor(Common.Log.ILog)">
+            <summary>
+            Inits monitoring with ApplicationInsights telemetry submission only.
+            </summary>
+            <param name="log">ILog implementation</param>
+        </member>
+        <member name="M:Lykke.Common.ResourcesMonitor.#ctor(Common.Log.ILog,System.Nullable{System.Double},System.Nullable{System.Int32})">
+            <summary>
+            Inits monitoring that beside ApplicationInsights telemetry submission also logs threshold crossing events on monitor level.
+            </summary>
+            <param name="log">ILog implementation</param>
+            <param name="cpuThreshold">Optional CPU threshold for monitor logging</param>
+            <param name="ramMbThreshold">Optional RAM threshold for monitor logging</param>
+        </member>
+    </members>
+</doc>

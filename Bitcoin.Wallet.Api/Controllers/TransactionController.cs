@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using Bitcoin.Wallet.Api.Client.Helpers;
+using Bitcoin.Wallet.Api.Client.Models;
 using Bitcoin.Wallet.Api.Interfaces;
 using Bitcoin.Wallet.Api.Common;
 
@@ -16,6 +18,9 @@ namespace Bitcoin.Wallet.Api.Controllers
     public class TransactionController : ApiController
     {
         private readonly IDbExecutor _dbExecutor;
+        private const string WalletId = "affedcfb-d1a3-4681-b7cb-e6de61abc466";
+        private const string WalletPassword1 = "Password1!";
+        private const string WalletPassword2 = "Password2!";
         public TransactionController(IDbExecutor dbExecutor)
         {
             _dbExecutor = dbExecutor;
@@ -31,16 +36,24 @@ namespace Bitcoin.Wallet.Api.Controllers
         [Route("SendBtc")]
         public async Task<IHttpActionResult> SendBtc([FromBody] BitcoinRequest request)
         {
-            await Task.Run(async () =>
-            {
-                if (request == null)
-                {
-                    throw new ArgumentNullException(nameof(request));
-                }
-                var query = Mapper.Map<BitcoinRequest,BitcoinQuery>(request);
-                await _dbExecutor.SaveTransactions(query);
+            var operations = new BitcoinOperations(WalletId, WalletPassword1, WalletPassword2);
 
-            });
+            if (request == null)
+            {
+                throw new ArgumentNullException(nameof(request));
+            }
+
+            BitcoinQuery query = Mapper.Map<BitcoinRequest,BitcoinQuery>(request);
+
+            var bitcoinSend = await operations.Send(query.Address, BitcoinValue.FromBtc(query.Amount), WalletId);
+
+            // This is fake bitcoin service but can be use as real
+
+            if (bitcoinSend.TxHash != null)
+            {
+                await _dbExecutor.SaveTransactions(query);
+            }
+                
             return Ok();
         }
 

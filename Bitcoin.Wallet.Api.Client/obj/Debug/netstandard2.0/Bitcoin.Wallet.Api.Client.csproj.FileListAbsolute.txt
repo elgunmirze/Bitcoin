@@ -1,0 +1,8 @@
+C:\Users\elgun.mirza\Documents\Temp\Bitcoin\Bitcoin.Wallet.Api.Client\bin\Debug\netstandard2.0\Bitcoin.Wallet.Api.Client.deps.json
+C:\Users\elgun.mirza\Documents\Temp\Bitcoin\Bitcoin.Wallet.Api.Client\bin\Debug\netstandard2.0\Bitcoin.Wallet.Api.Client.dll
+C:\Users\elgun.mirza\Documents\Temp\Bitcoin\Bitcoin.Wallet.Api.Client\obj\Debug\netstandard2.0\Bitcoin.Wallet.Api.Client.csproj.CoreCompileInputs.cache
+C:\Users\elgun.mirza\Documents\Temp\Bitcoin\Bitcoin.Wallet.Api.Client\obj\Debug\netstandard2.0\Bitcoin.Wallet.Api.Client.AssemblyInfoInputs.cache
+C:\Users\elgun.mirza\Documents\Temp\Bitcoin\Bitcoin.Wallet.Api.Client\obj\Debug\netstandard2.0\Bitcoin.Wallet.Api.Client.AssemblyInfo.cs
+C:\Users\elgun.mirza\Documents\Temp\Bitcoin\Bitcoin.Wallet.Api.Client\bin\Debug\netstandard2.0\Bitcoin.Wallet.Api.Client.pdb
+C:\Users\elgun.mirza\Documents\Temp\Bitcoin\Bitcoin.Wallet.Api.Client\obj\Debug\netstandard2.0\Bitcoin.Wallet.Api.Client.dll
+C:\Users\elgun.mirza\Documents\Temp\Bitcoin\Bitcoin.Wallet.Api.Client\obj\Debug\netstandard2.0\Bitcoin.Wallet.Api.Client.pdb

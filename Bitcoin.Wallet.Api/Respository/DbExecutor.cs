@@ -11,12 +11,17 @@ namespace Bitcoin.Wallet.Api.Respository
 {
     public class DbExecutor: IDbExecutor
     {
-        private string _sqlConnection = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        private readonly string _sqlConnection;
+        public DbExecutor()
+        {
+            _sqlConnection = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        }
+        
         public async Task SaveTransactions(BitcoinQuery bitcoinQuery)
         {
-            using (SqlConnection conn = new SqlConnection(_sqlConnection))
+            using (var conn = new SqlConnection(_sqlConnection))
             {
-                using (SqlCommand cmd = new SqlCommand(DbQueries.InsertTransactions, conn))
+                using (var cmd = new SqlCommand(DbQueries.InsertTransactions, conn))
                 {
                     if (conn.State != ConnectionState.Open)
                     {
@@ -35,9 +40,9 @@ namespace Bitcoin.Wallet.Api.Respository
         public async Task<IList<Transaction>> GetLatestTransactions()
         {
             IList<Transaction> transactions = new List<Transaction>();
-            using (SqlConnection conn = new SqlConnection(_sqlConnection))
+            using (var conn = new SqlConnection(_sqlConnection))
             {
-                using (SqlCommand cmd = new SqlCommand(DbQueries.GetLastTransactions, conn))
+                using (var cmd = new SqlCommand(DbQueries.GetLastTransactions, conn))
                 {
                     if (conn.State != ConnectionState.Open)
                     {
@@ -56,7 +61,7 @@ namespace Bitcoin.Wallet.Api.Respository
                                 Amount = Convert.ToDecimal(reader["AMOUNT"]),
                                 Confirmation = Convert.ToInt32(reader["CONFIRMATION"]),
                                 Date = Convert.ToDateTime(reader["DATE"]),
-                                IsRequested = Convert.ToInt32(reader["IS_REQUEST"]) == 0 ? false : true
+                                IsRequested = Convert.ToInt32(reader["IS_REQUEST"]) != 0
                             });
                         }
                     }
@@ -69,7 +74,7 @@ namespace Bitcoin.Wallet.Api.Respository
         {
             var updateSql = DbQueries.GetUpdateRequestSql(ids);
             
-            using (SqlConnection conn = new SqlConnection(_sqlConnection))
+            using (var conn = new SqlConnection(_sqlConnection))
             {
                 using (var cmd = new SqlCommand(updateSql, conn))
                 {
